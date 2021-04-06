@@ -1,0 +1,1182 @@
+﻿
+
+@{
+    ViewBag.Title = "AssetsView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/XMLParser/CreateAssetMapView.js"></script>
+<script>
+var loadProjectIdsUrl = '@Url.Action("GetProjectsIds","Hive")';
+    var loadUsersUrl = '@Url.Action("GetUsersIds", "Hive")';
+    var loadAssetsUrls = '@Url.Action("GetAssetsIds", "Hive")';
+    var loadTaskIdsUrl = '@Url.Action("GetTasksIds", "Hive")';
+    var createProjectUrl = '@Url.Action("CreateProject", "Hive")';
+    var createTaskUrl = '@Url.Action("CreateTask", "Hive")';
+    var createAssignmentUrl = '@Url.Action("CreateAssignment", "Hive")';
+    var loadAssignmentUrl = @Url.Action("GetAssignmentData", "Hive");
+
+     var generateHiveCall = '@Url.Content("~/api/xmlparser/GenerateHiveCall")';
+     var generateXMLFile = '@Url.Content("~/api/xmlparser/GenerateXMLFile")';
+     var getdownloadedFile = '@Url.Content("~/api/xmlparser/GetDownloadFile")';
+     var deletedownloadedFile = '@Url.Content("~/api/xmlparser/DeleteDownloadedFile")';
+     var getProjectIds = '@Url.Action("GetProjectsIds", "Hive")';
+    var getTasksIds = '@Url.Action("GetTasksIds", "Hive")';
+    $(window).load(function () {
+        $(document).ready(function () {
+            $("#projectModeModal").modal("show");
+            $("#menu_toggle").trigger('click');
+
+
+            var $content, $modal, $apnData, $modalCon;
+
+            $content = $(".min");
+
+
+            //To fire modal
+            $(".mdlFire").click(function (e) {
+
+                e.preventDefault();
+
+                var $id = $(this).attr("data-target");
+
+                $($id).modal({ backdrop: false, keyboard: false });
+
+            });
+
+
+            $(".modalMinimize").on("click", function () {
+                
+                $modalCon = $(this).closest(".mymodal").attr("id");
+
+                $apnData = $(this).closest(".mymodal");
+
+                $modal = "#" + $modalCon;
+
+                $(".modal-backdrop").addClass("display-none");
+
+                $($modal).toggleClass("min");
+                
+                if ($($modal).hasClass("min")) {
+                    $(this).find("i").removeClass('fa-minus').addClass('fa-clone');
+
+                }
+                else {
+
+                    $(this).find("i").removeClass('fa-clone').addClass('fa-minus');
+
+                };
+            });
+
+            $("button[data-dismiss='modal']").click(function () {
+
+                $(this).closest(".mymodal").removeClass("min");
+
+                $(this).next('.modalMinimize').find("i").removeClass('fa fa-clone').addClass('fa fa-minus');
+
+            }); 
+
+        });
+    });
+    function showPorjectModeModal() {
+        $("#projectModeModal").modal();
+    }
+    function showStartDestinaitonModal() {
+
+        $("#startDestinationModal").modal("show");
+
+    }
+    function showQuestionModal() {
+
+        $("#questionDetailModal").modal("show");
+    }
+
+
+    
+
+  
+
+
+
+
+
+
+
+</script>
+<style>
+    .modal-header .btnGrp {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+    }
+    .minMaxConPM {
+        height: 35px;
+        bottom: 1px;
+        left: 1px;
+        position: fixed;
+        right: 1px;
+        z-index: 10050;
+    }
+
+    .minMaxConSD {
+        height: 35px;
+        bottom: 1px;
+        left: 251px;
+        position: fixed;
+        right: 1px;
+        z-index: 10050;
+    }
+
+   .minMaxConQ {
+        height: 35px;
+        bottom: 1px;
+        left: 502px;
+        position: fixed;
+        right: 1px;
+        z-index: 10050;
+    }
+
+    .min {
+        width: 250px;
+        height: 35px;
+        overflow: hidden !important;
+        padding: 0px !important;
+        margin: 0px;
+        float: left;
+        position: static !important;
+    }
+
+        .min .modal-dialog, .min .modal-content {
+            height: 100%;
+            width: 100%;
+            margin: 0px !important;
+            padding: 0px !important;
+        }
+
+        .min .modal-header {
+            height: 100%;
+            width: 100%;
+            margin: 0px !important;
+            padding: 3px 5px !important;
+        }
+
+    .display-none {
+        display: none;
+    }
+
+    button .fa {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    .min .fa {
+        font-size: 14px;
+    }
+
+    .min .menuTab {
+        display: none;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    
+    .display-none{
+        display:none;
+    }
+
+    .form-control-option-addBtn {
+        width: 36px;
+    }
+
+    .form-control-option-deleteBtn {
+        width: 36px;
+    }
+
+    .pac-container {
+        z-index: 100000 !important;
+    }
+
+    .modal-backdrop {
+        background-color: rgba(0,0,0, 0.001) !important;
+    }
+
+    .modal-content {
+        background: rgba(157, 179, 153, 0.3) !important;
+    }
+
+    .modal .x_panel {
+        background: rgba(157, 179, 153, 0.3) !important;
+        color: black;
+    }
+
+    .modal-header {
+        border-bottom: 1px solid white;
+    }
+
+    .modal-footer {
+        border-top: 1px solid white;
+    }
+
+    .modal h4, label {
+        color: black;
+    }
+
+    .dropdown {
+        color: black;
+    }
+
+    .actionBar {
+        display: none;
+    }
+
+    .stepContainer {
+        display: none;
+    }
+
+    .wizard_horizontal ul.wizard_steps li a .step_no {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .wizard_horizontal ul.wizard_steps li a:before {
+        top: 10px;
+    }
+
+    
+
+   
+</style>
+<div class="right_col" role="main">
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+
+    @Html.Partial("~/Views/Home/AssociateQuestion.cshtml")
+
+    <!--************** Project and Mode Modal ************-->
+    <div class="minMaxConPM">
+        <div class="modal fade mymodal" id="projectModeModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title" style="display:inline;font-size:12pt">Project and Mode</h4>
+                        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <button class="close modalMinimize"> <i class='fa fa-minus'></i> </button>
+
+
+                    </div>
+                    <div class="modal-body" style=" min-height:  300px; overflow-y: auto;">
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <label class="control-label">
+                                        Project:
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <select id="drpProject" class="form-control">
+                                            <option value="" selected disabled hidden>Select Project</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="row">
+                                    <label class="control-label">
+                                        Mode:
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                        <select id="assetMode" class="form-control">
+                                            <option value="Simple" selected>
+                                                Simple
+                                            </option>
+                                            <option value="Sequence">
+                                                Sequence
+                                            </option>
+                                            <option value="Decision">
+                                                Decision
+                                            </option>
+                                            <option value="DIAS_Simple">
+                                                DIAS Simple
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="saveProjectIdAndAssetMode()">Save</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--*************************************************-->
+    <!--************** Start and Destination Modal ************-->
+    <div class="minMaxConSD">
+        <div class="modal fade mymodal" id="startDestinationModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="display:inline;font-size:12pt">Start and Destination</h4>
+                        <button class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <button class="close modalMinimize"> <i class='fa fa-minus'></i> </button>
+
+                    </div>
+                    <div class="modal-body" style="min-height: 330px; overflow-y: auto;">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                <div class="form-group form-horizontal">
+                                    <!--Start Address div-->
+                                    <div id="startAddressDiv" style="display:none">
+                                        <div class="row">
+                                            <label id="lblStartAddr" class="control-label">
+                                                Start Address:
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-10 col-sm-10 col-xs-10">
+                                                <input id="startAddress" class="form-control" type="text" placeholder="Please enter start address here" />
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <button class="btn btn-primary" id="btnStartAddress">Go</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Destination Address Div-->
+                                    <div id="destinationAddressDiv" style="display:none">
+                                        <div class="row">
+                                            <label id="lblDestAddr" class="control-label">
+                                                Destination Address:
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                <input id="destinationAddress" class="form-control" type="text" placeholder="Please enter destination address here" />
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <button class="btn btn-primary" id="btnDestinationAddress">Go</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="saveStartAndDestinationData()">Save</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--*******************************************************-->
+    <!--************** Question Modal ************-->
+    <div class="minMaxConQ">
+        <div class="modal mymodal modal-question fade" id="questionDetailModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document" style="overflow-y: initial !important">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="display:inline;font-size:12pt">Question Detail</h4>
+                        <button class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <button class="close modalMinimize"> <i class='fa fa-minus'></i> </button>
+
+                    </div>
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); min-height: calc(70vh - 200px); overflow-y: auto;">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                <div class="form-group form-horizontal">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <label class="control-label">
+                                                    Question:
+                                                </label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                                    <input id="txtquestion" class="form-control" placeholder="Please add a question here." type="text" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="questionAddressDiv" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <label class="control-label">
+                                                    Question Address:
+                                                </label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                    <input id="questionAddress" class="form-control" type="text" placeholder="Please enter start address here" />
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                    <button class="addquestionaddress btn btn-primary" id="btnQuestionAddress">Go</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- dias group point address div-->
+                                        <div id="DIASGrouppointAddressDiv" style="display: none;" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <label class="control-label">
+                                                    Group Point Address:
+                                                </label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                    <input id="DIASGrouppointAddress" placeholder="please enter group point address here" class="form-control" min="1" max="1000" />
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                    <button class="btn btn-primary" id="btnDIASGrouppointAddress">go</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <label class="control-label">
+                                                    Question Type:
+                                                </label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                    <select id="questionType">
+                                                        <option value="radio" selected>
+                                                            Radio
+                                                        </option>
+                                                        <option value="checkbox">
+                                                            Checkbox
+                                                        </option>
+                                                        <option value="likertScale">
+                                                            Likert Scale
+                                                        </option>
+                                                        <option value="textBox">
+                                                            Text Box
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left: 30px;margin-right: 0px;margin-top: 10px">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div id="projectdiv">
+                                                <div class="x_panel" style="height:auto">
+                                                    <div class="x_title collapse-link">
+                                                        <h3>Option(s)</h3>
+                                                        <ul class="nav navbar-right panel_toolbox">
+                                                            <li>
+                                                                <a><i class="fa fa-chevron-down dropdown"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="x_content form-group">
+                                                        <div id="optionsDiv">
+
+                                                            <div id='TextBoxesGroup' class="row">
+
+                                                            </div>
+                                                            <div id='TextBoxesGroupCombination' class="row">
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Advance option-->
+                                <div class="row" style="margin-left: 30px;margin-right: 0px">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div id="advanceOPtionDiv">
+                                            <div class="x_panel" style="height:auto">
+                                                <div class="x_title collapse-link">
+                                                    <h3>Advance Option(s)</h3>
+                                                    <ul class="nav navbar-right panel_toolbox">
+                                                        <li>
+                                                            <a><i class="fa fa-chevron-down dropdown"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="x_content form-group" style="display:none">
+
+                                                    <div class="row" style="text-align:left">
+                                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                                            <!-- Default credit-->
+                                                            <div class="row">
+                                                                <label class="control-label">
+                                                                    Default Credit:
+                                                                </label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <input type="number" id="defaultCredit" class="form-control chk-number-input" value="5" min="1" max="1000" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <label class="control-label">
+                                                                        Time (s):
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <input type="number" class="form-control chk-number-input" min="1" id="txtTime" value="3" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <label class="control-label">
+                                                                        Frequency:
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <select id="txtFrequency">
+                                                                        <option value="High">
+                                                                            High
+                                                                        </option>
+                                                                        <option value="Medium" selected>
+                                                                            Medium
+                                                                        </option>
+                                                                        <option value="Low">
+                                                                            Low
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <label class="control-label">
+                                                                        Vicinity:<img id="vicinityInfoSign" src="~/Content/img/info_icon.png" style="height: 20px;width: 20px;margin-top: 1px;margin-left: 4px; margin-bottom: 1px" data-toggle="tooltip" title="Not recommended to change this value" />
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <input type="number" min="1" id="txtVicinity" class="form-control chk-number-input" value="25" />
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+
+                                                            <div class="row" style="display:none">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <label class="control-label">
+                                                                        Sequence:
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="display:none">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <input type="number" min="1" id="txtSequence" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="row">
+                                                                <label class="control-label">
+                                                                    Sensors:
+                                                                </label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <select id="dropdownSensors" class="form-control" multiple></select>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                            <div class="row">
+                                                                <label class="control-label">
+                                                                    Visibility:
+                                                                </label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <input type="checkbox" id="txtVisibility" class="js-switch" checked="checked" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                            <div class="row">
+                                                                <label class="control-label">Mandatory:</label>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                        <input type="checkbox" id="txtMandatory" class="js-switch" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <label class="control-label">
+                                                                        Show Credits:
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <input type="checkbox" id="txtShowCredit" class="js-switch" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="addquestiondiv" class="row" style="text-align: right">
+                                    <button class="addquestion btn btn-default" id="btnaddquestion" onclick="addQuestionInList(0)">Add Question</button>
+                                </div>
+                                <!-- Questions -->
+                                <div class="row" style="margin-left: 30px;margin-right: 0px">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div id="addedQuestiondiv">
+                                            <div class="x_panel" id="addedQuestiondiv_panel" style="height:auto">
+                                                <div class="x_title collapse-link">
+                                                    <h3>Added Questions</h3>
+                                                    <!-- Question Association Button-->
+
+                                                    <ul class="nav navbar-right panel_toolbox">
+                                                        <li>
+                                                            <a><i class="fa fa-chevron-down dropdown"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="row" id="btnAssociateQuesDiv" style="display:none; float:right">
+                                                        <button class="btn btn-info" hidden="hidden" id="btnassociateques" onclick="associateQuestion()">Associate Question</button>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="x_content form-group" style="display:none">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="section-panel-grid">
+                                                            <table id="tbQuestions" class="display" cellspacing="0" role="grid" style="font-size:12px;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th width="5%">id</th>
+                                                                        <th width="20%">Question</th>
+                                                                        <th width="20%">Sensors</th>
+                                                                        <th width="10%">Type</th>
+                                                                        <th width="10%">Sequence</th>
+                                                                        <th width="20%">Options</th>
+                                                                        <th width="15%"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--******************************************-->
+
+        <div class="x_panel">
+            <div class="x_title">
+                <h3>Asset Create</h3>
+                <span style="font-size:12px;margin-bottom:2px; margin-left:5px">(through Map)</span>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="col-md-1 col-sm-1 col-xs-1 form-group mapMenu" style="padding-right:0px;margin-left: -15px;margin-right:15px ;margin-top: 2%; font-size:10px; display:none;float:left">
+
+                        <div class="row menu-separator-line">
+
+                            <button class="btn btn-primary map-view-menu-btns" onclick="showPorjectModeModal()">Project & Mode</button>
+
+                            <button class="btn btn-primary map-view-menu-btns" style="display:none" id="startDestinaitonModalBtn" onclick="showStartDestinaitonModal()">Start & Destinaiton</button>
+
+                            <button class="btn btn-primary map-view-menu-btns" style="display:none" id="questionModelBtn" onclick="showQuestionModal()">Question</button>
+
+
+                        </div>
+
+                        <div class="row menu-separator-line">
+
+                            <button class="btn btn-primary  map-view-menu-btns" id="btnsubmit" onclick="submitFormevent()">Create JSON</button>
+
+                            <button class="btn btn-primary  map-view-menu-btns disabled" id="btnDownloadXMLFile" hidden="hidden" onclick="downloadFile()">Download JSON</button>
+
+                            <button class="btn btn-primary  map-view-menu-btns" id="btnreset" onClick="refreshPage()">Reset</button>
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12" id="googleMapParentDiv" style="padding:0px 15px;float:right">
+                        <div class="row">
+                            <div id="checkStartDest" style="display:none">
+                                <div class="radio" style="display:inline-block;width:100px; margin-top:0px;margin-bottom:0px">
+                                    <label class="mapAddressRadioLbl">
+                                        <input type="radio" class="flat" name="address" checked id="startAddressRadioBtn"> Start
+                                    </label>
+
+                                </div>
+                                <div class="radio" style="display:inline-block;width:100px;margin-top:0px;margin-bottom:0px">
+                                    <label class="mapAddressRadioLbl">
+                                        <input type="radio" class="flat" name="address" id="destinationAddressRadioBtn" /> Destination
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="radio" id="QuestionRadioBtnOnMap" style="display:none;width:100px;margin-top:0px;margin-bottom:0px">
+                                <label class="mapAddressRadioLbl">
+                                    <input type="radio" class="flat" name="address" id="questionAddressRadioBtn" /> Question
+                                </label>
+                            </div>
+                            <div class="radio" id="DIASGrouppointAddressRadioBtnOnMap" style="display:none;width:100px;margin-top:0px;margin-bottom:0px">
+                                <label class="mapAddressRadioLbl">
+                                    <input type="radio" class="flat" name="address" id="DIASGrouppointAddressRadioBtn" /> Group Point
+                                </label>
+                            </div>
+                        </div>
+                        <div id="googleMap" class="mainMap" oncontextmenu="return false;" style="min-height:250px;width: 100%;margin-top: 15px;position: relative;overflow: hidden;"></div>
+                        <button class="btn btn-primary  map-view-menu-btns" style="margin-top: 10px;float: right" id="btnHivesubmit" onclick="submitForHive()">Submit</button>
+                        <script>
+                            var startAvailable = false;
+                            var destAvailable = false;
+                            var desiredAvailable = false;
+                            var startLatitude = null;
+                            var startLongitude = null;
+                            var destinationLatitude = null;
+                            var destinationLongitude = null;
+                            var questionLatitude = null;
+                            var questionLongitude = null;
+                            var startLocationMarker = null;
+                            var destinationLocationMarker = null;
+                            var desiredLocationMarker = null;
+                            var homeLocationMarker = null;
+                            var focusedInput = null;
+                            var map;
+                            var mapProp;
+                            function showResult(addresslat, addresslng) {
+                                if (startAvailable === true) {
+                                    startLatitude = addresslat;
+                                    startLongitude = addresslng;
+                                    if (startLocationMarker === null) {
+                                        startLocationMarker = new google.maps.Marker({
+                                            position: new google.maps.LatLng(startLatitude, startLongitude),
+                                            //label: { text: 'A', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                            map: map,
+                                            icon: '/Content/img/green-dot.png'
+                                        });
+                                        map.setZoom(14);
+                                        map.panTo(startLocationMarker.position);
+                                    } else {
+                                        startLocationMarker.setPosition(
+                                            new google.maps.LatLng(
+                                                startLatitude,
+                                                startLongitude
+                                            )
+                                        );
+                                    }
+                                    startAvailable = false;
+                                }
+                                if (destAvailable === true) {
+                                    destinationLatitude = addresslat;
+                                    destinationLongitude = addresslng;
+                                    if (destinationLocationMarker === null) {
+                                        destinationLocationMarker = new google.maps.Marker({
+                                            position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                                            //label: { text: 'B', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                            map: map,
+                                            icon: '/Content/img/red-dot.png'
+                                        });
+                                        map.setZoom(14);
+                                        map.panTo(destinationLocationMarker.position);
+                                    } else {
+                                        destinationLocationMarker.setPosition(
+                                            new google.maps.LatLng(
+                                                destinationLatitude,
+                                                destinationLongitude
+                                            )
+                                        );
+                                    }
+                                    destAvailable = false;
+                                }
+                                if (desiredAvailable === true) {
+
+                                    questionLatitude = addresslat;
+                                    questionLongitude = addresslng;
+                                    if (desiredLocationMarker === null) {
+                                        desiredLocationMarker = new google.maps.Marker({
+                                            position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                                            //label: { text: 'Q', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                            map: map,
+                                            icon: '/Content/img/blue-dot.png'
+                                        });
+                                        map.setZoom(14);
+                                        map.panTo(desiredLocationMarker.position);
+                                    } else {
+                                        desiredLocationMarker.setPosition(
+                                            new google.maps.LatLng(
+                                                questionLatitude,
+                                                questionLongitude
+                                            )
+                                        );
+                                    }
+                                    desiredAvailable = false;
+                                }
+                            }
+                            function showResultbtn(result) {
+
+                                var addresslat = result.geometry.location.lat();
+                                var addresslng = result.geometry.location.lng();
+                                if (addresslat === 47.3770065 && addresslng == 8.54391099999998) {
+                                    new PNotify({
+                                        title: 'Info!',
+                                        text: "Please enter a address: ",
+                                        type: 'info',
+                                        delay: 2000
+                                    });
+
+                                }
+
+                                else {
+                                    if (startAvailable === true) {
+
+                                        startLatitude = addresslat;
+                                        startLongitude = addresslng;
+                                        if (startLocationMarker === null) {
+                                            startLocationMarker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(startLatitude, startLongitude),
+                                                //label: { text: 'Start', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                map: map,
+                                                icon: '/Content/img/green-dot.png'
+                                            });
+                                            map.setZoom(14);
+                                            map.panTo(startLocationMarker.position);
+                                        } else {
+                                            startLocationMarker.setPosition(
+                                                new google.maps.LatLng(
+                                                    startLatitude,
+                                                    startLongitude
+                                                )
+                                            );
+                                            map.setZoom(14);
+                                            map.panTo(startLocationMarker.position);
+                                        }
+                                        startAvailable = false;
+                                    }
+                                    if (destAvailable === true) {
+
+                                        destinationLatitude = addresslat;
+                                        destinationLongitude = addresslng;
+                                        if (destinationLocationMarker === null) {
+                                            destinationLocationMarker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                                                //label: { text: 'Destination', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                map: map,
+                                                icon: '/Content/img/red-dot.png'
+                                            });
+                                            map.setZoom(14);
+                                            map.panTo(destinationLocationMarker.position);
+                                        } else {
+                                            destinationLocationMarker.setPosition(
+                                                new google.maps.LatLng(
+                                                    destinationLatitude,
+                                                    destinationLongitude
+                                                )
+                                            );
+                                            map.setZoom(14);
+                                            map.panTo(destinationLocationMarker.position);
+                                        }
+                                        destAvailable = false;
+
+                                    }
+                                    if (desiredAvailable === true) {
+                                        questionLatitude = addresslat;
+                                        questionLongitude = addresslng;
+                                        if (desiredLocationMarker === null) {
+                                            desiredLocationMarker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                                                //label: { text: 'Desired', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                map: map,
+                                                icon: '/Content/img/blue-dot.png'
+                                            });
+                                            //if ($("#optMode").val() == "Simple") {
+                                            map.setZoom(14);
+                                            map.panTo(desiredLocationMarker.position);
+                                            //}
+                                        } else {
+                                            desiredLocationMarker.setPosition(
+                                                new google.maps.LatLng(
+                                                    questionLatitude,
+                                                    questionLongitude
+                                                )
+                                            );
+                                            //if ($("#optMode").val() == "Simple") {
+                                            map.setZoom(14);
+                                            map.panTo(desiredLocationMarker.position);
+                                            //}
+                                        }
+                                        desiredAvailable = false;
+                                    }
+                                }
+                            }
+
+                            function getLatitudeLongitude(callback, address) {
+                                // If address is not supplied, use default value 'Ferrol, Galicia, Spain'
+                                address = address || 'Central, 8001 Zürich, Switzerland'/*'Ferrol, Galicia, Spain'*/;
+                                // Initialize the Geocoder
+                                geocoder = new google.maps.Geocoder();
+                                if (geocoder) {
+                                    geocoder.geocode({
+                                        'address': address
+                                    }, function (results, status) {
+                                        if (status == google.maps.GeocoderStatus.OK) {
+                                            callback(results[0]);
+                                        } else {
+                                            //alert('Please enter a correct address: ' + status);
+                                            new PNotify({
+                                                title: 'Info!',
+                                                text: "Please enter a correct address: " + status,
+                                                type: 'info',
+                                                delay: 2000
+                                            });
+                                        }
+                                    });
+                                }
+                            }
+
+
+                            document.getElementById("btnStartAddress").addEventListener("click", function () {
+                                var startAddress = document.getElementById('startAddress').value;
+                                startAvailable = true;
+                                getLatitudeLongitude(showResultbtn, startAddress)
+                            });
+                            document.getElementById("btnDestinationAddress").addEventListener("click", function () {
+                                var DestinationAddress = document.getElementById('destinationAddress').value;
+                                destAvailable = true;
+                                getLatitudeLongitude(showResultbtn, DestinationAddress)
+                            });
+
+                            document.getElementById("btnQuestionAddress").addEventListener("click", function () {
+                                var QuestionAddress = document.getElementById('questionAddress').value;
+                                desiredAvailable = true;
+                                getLatitudeLongitude(showResultbtn, QuestionAddress)
+                            });
+
+                            document.getElementById("btnDIASGrouppointAddress").addEventListener("click", function () {
+                                var DIASGrouppointAddress = document.getElementById('DIASGrouppointAddress').value;
+                                desiredAvailable = true;
+                                getLatitudeLongitude(showResultbtn, DIASGrouppointAddress)
+                            });
+
+
+
+                            function myMap() {
+                                var directions = {};
+                                var directionsDisplay = new google.maps.DirectionsRenderer();
+                                var directionsService = new google.maps.DirectionsService();
+                                mapProp = {
+                                    center: new google.maps.LatLng(47.3770065, 8.54391099999998),
+                                    zoom: 10,
+                                };
+                                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+                                var startLatLng;
+                                var destinationLatLng;
+                                var desiredLatLng;
+                                var requiredAddress = null;
+                                google.maps.event.addListener(map, "click", function (e) {
+                                    var selectedLatLng = e.latLng;
+                                    geocoder = new google.maps.Geocoder();
+                                    geocoder.geocode({
+                                        'latLng': e.latLng
+                                    }, function (results, status) {
+                                        if (status == google.maps.GeocoderStatus.OK) {
+                                            if (results[0]) {
+                                                if ($('#startAddressRadioBtn').is(":checked") === true) {
+                                                    document.getElementById('startAddress').value = results[0].formatted_address;
+                                                    startAvailable = true;
+                                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                }
+                                                else if ($('#destinationAddressRadioBtn').is(":checked") === true) {
+                                                    document.getElementById('destinationAddress').value = results[0].formatted_address;
+                                                    destAvailable = true;
+                                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                }
+                                                else if ($('#questionAddressRadioBtn').is(":checked") === true) {
+                                                    document.getElementById('questionAddress').value = results[0].formatted_address;
+                                                    desiredAvailable = true;
+                                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                }
+                                                else if ($('#DIASGrouppointAddressRadioBtn').is(":checked") === true) {
+                                                    document.getElementById('DIASGrouppointAddress').value = results[0].formatted_address;
+                                                    desiredAvailable = true;
+                                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                }
+
+                                                else {
+                                                    new PNotify({
+                                                        title: 'Info!',
+                                                        text: "Please click on any address input!",
+                                                        type: 'info',
+                                                        delay: 2000
+                                                    });
+                                                    return;
+                                                }
+                                            }
+                                        }
+
+                                    });
+                                });
+
+
+                                google.maps.event.addListener(map, "rightclick", function (e) {
+                                    if ($('#startAddressRadioBtn').is(":checked") === true) {
+                                        $(document).contextmenu(function (e) {
+                                            return false;
+                                        });
+                                        showStartDestinaitonModal();
+                                        //document.getElementById('startAddress').value = results[0].formatted_address;
+                                        //startAvailable = true;
+                                        //showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                    }
+                                    else if ($('#destinationAddressRadioBtn').is(":checked") === true) {
+                                        $(document).contextmenu(function (e) {
+                                            return false;
+                                        });
+                                        showStartDestinaitonModal();
+                                        //document.getElementById('destinationAddress').value = results[0].formatted_address;
+                                        //destAvailable = true;
+                                        //showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                    }
+                                    else if ($('#questionAddressRadioBtn').is(":checked") === true) {
+                                        $(document).contextmenu(function (e) {
+                                            return false;
+                                        });
+                                        showQuestionModal();
+                                        //document.getElementById('questionAddress').value = results[0].formatted_address;
+                                        //desiredAvailable = true;
+                                        //showResult(selectedLatLng.lat(), selectedLatLng.lng());
+
+                                    }
+                                    else if ($('#DIASGrouppointAddressRadioBtn').is(":checked") === true) {
+                                        $(document).contextmenu(function (e) {
+                                            return false;
+                                        });
+                                        showQuestionModal();
+                                        //document.getElementById('DIASGrouppointAddress').value = results[0].formatted_address;
+                                        //desiredAvailable = true;
+                                        //showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                    }
+
+                                });
+
+
+
+                                google.maps.event.addDomListener(window, 'keydown', function (event) {
+
+                                    if (event.keyCode === 13) {
+                                        event.preventDefault();
+                                        if ($("#startAddress").is(":focus")) {
+                                            $("#btnStartAddress").click();
+                                        }
+                                        else if ($("#destinationAddress").is(":focus")) {
+                                            $("#btnDestinationAddress").click();
+                                        }
+                                        else if ($("#questionAddress").is(":focus")) {
+                                            $("#btnQuestionAddress").click();
+                                        }
+                                        else if ($("#DIASGrouppointAddress").is(":focus")) {
+                                            $("#btnDIASGrouppointAddress").click();
+                                        }
+                                    }
+                                });
+                                google.maps.event.addDomListener(window, 'load', initialize);
+                                function initialize() {
+
+                                    var startaddressinput = document.getElementById('startAddress');
+                                    var startaddressautocomplete = new google.maps.places.Autocomplete(startaddressinput);
+
+                                    var destinationaddressinput = document.getElementById('destinationAddress');
+                                    var destinationaddressautocomplete = new google.maps.places.Autocomplete(destinationaddressinput);
+
+                                    var questionaddressinput = document.getElementById('questionAddress');
+                                    var questionaddressautocomplete = new google.maps.places.Autocomplete(questionaddressinput);
+
+                                    var DIASGrouppointAddressinput = document.getElementById('DIASGrouppointAddress');
+                                    var DIASGrouppointAddresscomplete = new google.maps.places.Autocomplete(DIASGrouppointAddressinput);
+
+                                }
+                            }
+
+                            $(window).load(function () {
+                                // PAGE IS FULLY LOADED
+                                // FADE OUT YOUR OVERLAYING DIV
+                                $('#loader').addClass("hide");
+                            });
+
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsdm2NgCWmLb7rWaBjxkF0co3N3Hhehbg&v=3.exp&sensor=false&libraries=places&callback=myMap"></script>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

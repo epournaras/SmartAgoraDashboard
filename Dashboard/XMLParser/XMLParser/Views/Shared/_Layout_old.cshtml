@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
+    <link href="~/Content/offlineCss/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/XMLParser.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+    <script src="~/Scripts/offlineJs/jquery.min.js"></script>
+
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+    <link rel="stylesheet" type="text/css" href="~/Content/XMLParser.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Select2/select2.css" />
+    @*<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />*@
+    @*<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>*@
+    <script src="~/Scripts/offlineJs/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+    <link href="~/Content/DataTables/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Scripts/DataTables/dataTables.select.min.js"></script>
+    <link href="~/Content/DataTables/select.dataTables.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/select2.full.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/XMLParser/XMLParser.js"></script>
+    @*<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>*@
+    <script src="~/Scripts/offlineJs/jquery-1.7.1.min.js"></script>
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>*@
+    <script src="~/Scripts/offlineJs/clipboard.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+<body>
+    <div class="overlay hide" id="loader">
+        <div>
+            <img src="~/Content/img/ajax-loader.gif" />
+        </div>
+    </div>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                @*<div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Generate XML File", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    <div class="container body-content">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Smart Agora</a>
+                </div>
+                <ul class="nav navbar-nav" style="font-size:large">
+                    <li class="@(ViewBag.Current == "Home" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+
+                    @if (Session["Email"] != null && Session["UserName"]!=null)
+                    {
+                        <li class="dropdown @(ViewBag.Current == "DropDown" ? "active" : "")">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Projects Configuration
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("All Projects", "ProjectsView", "Home", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("All Assets", "AssetsView", "Home", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("All Users", "UsersView", "Home", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("All Tasks", "TasksView", "Home", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Create Project", "CreateProjectView", "Home", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Create Task", "CreateTaskView", "Home", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Create Assignment", "CreateAssignmentView", "Home", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
+                        @*<li class="@(ViewBag.Current == "Home" ? "active" : "")">@Html.ActionLink("Server Storage Testing", "serverStorageTesting", "Home", new { area = "" }, null)</li>*@
+                        <li>@Html.ActionLink("Upload File", "UploadFileView", "Home", new { area = "" }, null)</li>
+
+                    }
+                </ul>
+                @if (Session["Email"] != null && Sesison["UserName"] !=null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <strong>@Session["FirstName"]</strong>
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="navbar-login">
+                                        <div class="row" style="margin-left:0px; margin-right:0px">
+                                            <div class="col-lg-10">
+                                                <p class="text-left" style="padding:0px">
+                                                    <span class="glyphicon glyphicon-user icon-size"></span>
+                                                    <strong>@Session["FirstName"]</strong>
+                                                </p>
+                                                <p class="text-left small" style="padding:0px 0px 7px 0px">@Session["Email"]</p>
+                                                <p class="text-left" style="padding:0px">
+                                                    <a href='@Url.Action("EditProfile","Home")' class="btn btn-primary btn-block btn-sm">Edit Profile</a>
+                                                </p>
+                                                <p class="text-left" style="padding:0px">
+                                                    <a href='@Url.Action("LogOut","Home")' class="btn btn-primary btn-block btn-sm">Logout</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </nav>
+        <div style="padding: 50px 0px 10px 0px">
+            @RenderBody()
+        </div>
+
+        <div class="row footerDiv">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Smart Agora</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

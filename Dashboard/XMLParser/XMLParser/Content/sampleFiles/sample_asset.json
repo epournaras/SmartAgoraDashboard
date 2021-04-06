@@ -1,0 +1,160 @@
+
+  {
+      "ProjectId": "project_id-za",
+	  "QuestionsModel":{
+    "StartAndDestinationModel": {
+      "StartLatitude": "47.4249699",
+      "StartLongitude": "8.497299500000054",
+      "DestinationLatitude": "47.421346399913894",
+      "DestinationLongitude": "8.507019228259423",
+      "Mode": "Decision",
+      "DefaultCredit": "5"
+    },
+    "SampleDataModel": [
+      {
+        "id": 1,
+        "Question": "Question A",
+        "Type": "radio",
+        "Latitude": "47.42349506401831",
+        "Longitude": "8.499208635608056",
+        "Sensor": [
+          {
+            "id": 1,
+            "Name": "Light"
+          },
+          {
+            "id": 1,
+            "Name": "Light"
+          }
+        ],
+        "Time": "6",
+        "Frequency": "High",
+        "Sequence": "Disable",
+        "Visibility": "true",
+        "Mandatory": "false",
+        "Option": [
+          {
+            "id": 1,
+            "Name": "Yes (3 Credits)",
+            "NextQuestion": null,
+            "Credits": "3"
+          },
+          {
+            "id": 2,
+            "Name": "No (2 Credits)",
+            "NextQuestion": null,
+            "Credits": "2"
+          }
+        ],
+        "Combination": null,
+		"Vicinity": "5"
+      },
+      {
+        "id": 2,
+        "Question": "Question B",
+        "Type": "checkbox",
+        "Latitude": "47.42284337596952",
+        "Longitude": "8.501487917369786",
+        "Sensor": [
+          {
+            "id": 1,
+            "Name": "Gyroscope"
+          }
+        ],
+        "Time": "6",
+        "Frequency": "High",
+        "Sequence": "Disable",
+        "Visibility": "true",
+        "Mandatory": "false",
+        "Option": [
+          {
+            "id": 1,
+            "Name": "Yes (5 Credits)",
+            "NextQuestion": null,
+            "Credits": "5"
+          },
+          {
+            "id": 2,
+            "Name": "No (5 Credits)",
+            "NextQuestion": null,
+            "Credits": "5"
+          },
+          {
+            "id": 3,
+            "Name": " (5 Credits)",
+            "NextQuestion": null,
+            "Credits": "Disable"
+          }
+        ],
+        "Combination": [
+          {
+            "id": 1,
+            "Selected": [
+              {
+                "id": 1,
+                "Order": "1"
+              }
+            ],
+            "NextQuestion": "1",
+            "Credits": null
+          },
+          {
+            "id": 2,
+            "Selected": [
+              {
+                "id": 1,
+                "Order": "2"
+              }
+            ],
+            "NextQuestion": "1",
+            "Credits": null
+          },
+          {
+            "id": 3,
+            "Selected": [
+              {
+                "id": 1,
+                "Order": "1"
+              },
+              {
+                "id": 2,
+                "Order": "2"
+              }
+            ],
+            "NextQuestion": "1",
+            "Credits": null
+          }
+        ],
+		"Vicinity": "5"
+      },
+      {
+        "id": 3,
+        "Question": "Question C",
+        "Type": "radio",
+        "Latitude": "47.422533660491865",
+        "Longitude": "8.502298540393213",
+        "Sensor": [
+          {
+            "id": 1,
+            "Name": "Accelerometer"
+          }
+        ],
+        "Time": "6",
+        "Frequency": "High",
+        "Sequence": "Disable",
+        "Visibility": "true",
+        "Mandatory": "false",
+        "Option": [
+          {
+            "id": 2,
+            "Name": "Yes (2 Credits)",
+            "NextQuestion": null,
+            "Credits": "2"
+          }
+        ],
+        "Combination": null,
+		"Vicinity": "5"
+      }
+    ]
+	}
+  }

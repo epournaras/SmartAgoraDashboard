@@ -1,0 +1,497 @@
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/ApplicationInsights.config
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.exe
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.exe.config
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.rsp
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csi.exe
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csi.rsp
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CSharp.Core.targets
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.VisualBasic.Core.targets
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.AppContext.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Collections.Immutable.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Diagnostics.StackTrace.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.Primitives.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Reflection.Metadata.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.exe
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.exe.config
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.rsp
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe.config
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.dll.config
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.pdb
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Antlr3.Runtime.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/HiveServer.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Agent.Intercept.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.PerfCounterCollector.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Web.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.Web.Infrastructure.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Models.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Data.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Web.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Newtonsoft.Json.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Net.Http.Formatting.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Helpers.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.WebHost.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Mvc.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Optimization.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Razor.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/WebGrease.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/HiveServer.pdb
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Models.pdb
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Antlr3.Runtime.pdb
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Data.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Web.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Newtonsoft.Json.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Net.Http.Formatting.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Helpers.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.WebHost.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Mvc.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Optimization.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Razor.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Web.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.csprojResolveAssemblyReference.cache
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CoreCompileInputs.cache
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/ApplicationInsights.config
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.exe
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.exe.config
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.rsp
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csi.exe
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csi.rsp
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CSharp.Core.targets
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.VisualBasic.Core.targets
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.AppContext.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Collections.Immutable.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Diagnostics.StackTrace.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.Primitives.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Reflection.Metadata.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.exe
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.exe.config
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.rsp
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe.config
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.dll.config
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Antlr3.Runtime.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/HiveServer.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Agent.Intercept.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.PerfCounterCollector.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Web.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.Web.Infrastructure.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Models.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Data.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Web.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Newtonsoft.Json.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Net.Http.Formatting.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Helpers.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.WebHost.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Mvc.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Optimization.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Razor.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/WebGrease.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/HiveServer.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Models.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Antlr3.Runtime.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Data.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Web.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Newtonsoft.Json.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Net.Http.Formatting.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Helpers.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.WebHost.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Mvc.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Optimization.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Razor.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Web.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.csprojResolveAssemblyReference.cache
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CoreCompileInputs.cache
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.pdb
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/ApplicationInsights.config
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.exe
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.exe.config
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csc.rsp
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csi.exe
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/csi.rsp
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.CSharp.Core.targets
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/Microsoft.VisualBasic.Core.targets
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.AppContext.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Collections.Immutable.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Diagnostics.StackTrace.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.Primitives.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/System.Reflection.Metadata.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.exe
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.exe.config
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/vbc.rsp
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe.config
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.dll.config
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/XMLParser.pdb
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Antlr3.Runtime.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/HiveServer.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Agent.Intercept.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.PerfCounterCollector.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Web.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.Web.Infrastructure.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Models.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Data.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Web.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Newtonsoft.Json.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Net.Http.Formatting.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Helpers.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.WebHost.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Mvc.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Optimization.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Razor.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/WebGrease.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/HiveServer.pdb
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Models.pdb
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Antlr3.Runtime.pdb
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Data.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/MySql.Web.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Newtonsoft.Json.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Net.Http.Formatting.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Helpers.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Http.WebHost.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Mvc.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Optimization.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.Razor.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/bin/Microsoft.AI.Web.xml
+F:/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.csprojResolveAssemblyReference.cache
+F:/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CoreCompileInputs.cache
+F:/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.dll
+F:/SocialExperimentRepository/XMLParser/XMLParser/obj/Debug/XMLParser.pdb
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/ApplicationInsights.config
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.exe
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.exe.config
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.rsp
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/csi.exe
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/csi.rsp
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CSharp.Core.targets
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.VisualBasic.Core.targets
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/System.AppContext.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Collections.Immutable.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Diagnostics.StackTrace.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.Primitives.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Reflection.Metadata.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.exe
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.exe.config
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.rsp
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe.config
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/XMLParser.dll.config
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/XMLParser.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/XMLParser.pdb
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Antlr3.Runtime.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/HiveServer.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Agent.Intercept.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.PerfCounterCollector.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Web.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.Web.Infrastructure.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Models.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/MySql.Data.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/MySql.Web.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Newtonsoft.Json.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Net.Http.Formatting.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Helpers.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.WebHost.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Mvc.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Optimization.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Razor.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/WebGrease.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/HiveServer.pdb
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Models.pdb
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Antlr3.Runtime.pdb
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/MySql.Data.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/MySql.Web.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Newtonsoft.Json.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Net.Http.Formatting.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Helpers.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.WebHost.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Mvc.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Optimization.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.Razor.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Web.xml
+F:/GitHub/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csprojAssemblyReference.cache
+F:/GitHub/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CoreCompileInputs.cache
+F:/GitHub/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CopyComplete
+F:/GitHub/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.dll
+F:/GitHub/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csprojAssemblyReference.cache
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CoreCompileInputs.cache
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/ApplicationInsights.config
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.exe
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.exe.config
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.rsp
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/csi.exe
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/csi.rsp
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CSharp.Core.targets
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.VisualBasic.Core.targets
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/System.AppContext.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Collections.Immutable.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Diagnostics.StackTrace.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.Primitives.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Reflection.Metadata.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.exe
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.exe.config
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.rsp
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe.config
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/XMLParser.dll.config
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/XMLParser.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/XMLParser.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Antlr3.Runtime.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/HiveServer.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Agent.Intercept.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.PerfCounterCollector.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Web.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.Web.Infrastructure.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Models.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/MySql.Data.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/MySql.Web.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Newtonsoft.Json.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Net.Http.Formatting.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Helpers.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.WebHost.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Mvc.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Optimization.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Razor.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/WebGrease.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Nest.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Elasticsearch.Net.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/HiveServer.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/HiveServer.dll.config
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Models.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Antlr3.Runtime.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/MySql.Data.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/MySql.Web.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Newtonsoft.Json.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Net.Http.Formatting.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Helpers.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.WebHost.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Mvc.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Optimization.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.Razor.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Web.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Nest.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/bin/Elasticsearch.Net.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CopyComplete
+/home/atif/Dashboard/XMLParser/XMLParser/bin/ApplicationInsights.config
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.exe
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.exe.config
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/csc.rsp
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/csi.exe
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/csi.rsp
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.CSharp.Core.targets
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/Microsoft.VisualBasic.Core.targets
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/System.AppContext.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Collections.Immutable.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Diagnostics.StackTrace.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/System.IO.FileSystem.Primitives.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/System.Reflection.Metadata.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.exe
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.exe.config
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/vbc.rsp
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe
+/home/atif/Dashboard/XMLParser/XMLParser/bin/roslyn/VBCSCompiler.exe.config
+/home/atif/Dashboard/XMLParser/XMLParser/bin/XMLParser.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/XMLParser.pdb
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Antlr3.Runtime.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/HiveServer.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Agent.Intercept.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.DependencyCollector.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.PerfCounterCollector.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.ServerTelemetryChannel.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.Web.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.AI.WindowsServer.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.ApplicationInsights.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.Web.Infrastructure.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Models.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/MySql.Data.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/MySql.Web.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Newtonsoft.Json.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Net.Http.Formatting.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Helpers.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.WebHost.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Mvc.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Optimization.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Razor.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/WebGrease.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Nest.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Elasticsearch.Net.dll
+/home/atif/Dashboard/XMLParser/XMLParser/bin/HiveServer.pdb
+/home/atif/Dashboard/XMLParser/XMLParser/bin/HiveServer.dll.config
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Models.pdb
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Antlr3.Runtime.pdb
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/MySql.Data.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/MySql.Web.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Newtonsoft.Json.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Net.Http.Formatting.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Helpers.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Http.WebHost.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Mvc.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.Razor.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Deployment.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/System.Web.WebPages.Razor.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Nest.xml
+/home/atif/Dashboard/XMLParser/XMLParser/bin/Elasticsearch.Net.xml
+/home/atif/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csprojResolveAssemblyReference.cache
+/home/atif/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.csproj.CoreCompileInputs.cache
+/home/atif/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.dll
+/home/atif/Dashboard/XMLParser/XMLParser/obj/Debug/XMLParser.pdb

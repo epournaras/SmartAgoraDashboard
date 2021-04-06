@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@{
+    var currentPage = ViewBag.Current;
+    var isHide = "";
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart Agora | @currentPage</title>
+    <!-- Bootstrap -->
+    <link href="../Scripts/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../Scripts/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../Scripts/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../Scripts/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Custom styling plus plugins -->
+    <link href="../Scripts/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../Content/build/css/custom.css" rel="stylesheet">
+    <link href="../Scripts/vendors/pnotify/dist/pnotify.css" rel="stylesheet" />
+    <script src="../Scripts/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/vendors/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../Scripts/vendors/pnotify/dist/pnotify.js"></script>
+    <script>PNotify.prototype.options.styling = "bootstrap3";</script>
+    <script src="~/Scripts/vendors/pnotify/dist/pnotify.callbacks.js"></script>
+
+    <!-- Include the plugin's CSS and JS: -->
+    <script src="~/Scripts/MultiSelect/js/bootstrap-multiselect.js"></script>
+    <link href="~/Scripts/MultiSelect/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="~/Scripts/vendors/switchery/switchery.css" rel="stylesheet" />
+</head>
+
+<body class="nav-md">
+    <div id="overlay"></div>
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="~/Home/index" class="site_title"><img src="../Content/img/logo.png" /><span>Smart Agora</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <i class="fa fa-user fa_icon"></i>
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>@Session["FirstName"]</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li id="home">
+                                    <a><i class="fa fa-home"></i> Home<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                       <!-- <li><a href="/Home/CreateAssetMapView" id="mapAnchor"><i class="fa fa-map"></i>Map</a> -->
+                                        <li><a href="/Home/CreateAssetFormView" id="formAnchor"><i class="fa fa-edit"></i>Form</a>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/Home/UploadFileView"><i class="fa fa-upload"></i> Upload File </a>
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="menu_section">
+                            <h3>Configuration</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="/Home/ProjectConfiguration"><i class="fa fa-edit"></i> Project Configuration</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="menu_section">
+                            <h3>Visualization</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-database"></i> View Data <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/Home/ProjectsView"><i class="fa fa-product-hunt"></i>Projects</a>
+                                        <li><a href="/Home/TasksView"><i class="fa fa-tasks fa-edit"></i>Tasks</a>
+                                        <li><a href="/Home/AssetsView"><i class="fa fa-file"></i>Assets</a>
+                                        <li><a href="/Home/UsersView"><i class="fa fa-user"></i>Users</a>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                        @{ if (currentPage == "Map View")
+                            {
+                                isHide = "show";
+                            }
+                            else
+                            {
+                                isHide = "hide";
+                            }
+
+
+                        }
+                        <div class="menu_section @isHide">
+                            <h3>Menu</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a href="#" onClick="hideShowMapMenu()"><i class="fa fa-edit"></i>Map Menu</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" style="width:inherit" title="Logout" href='@Url.Action("LogOut","Home")'>
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle" style="padding-top:5px">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="padding-top: 0px;padding-bottom: 0px;">
+                                    <i class="fa fa-user fa_icon"></i>&nbsp;&nbsp;@Session["FirstName"]
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href='@Url.Action("EditProfile","Home")'> Edit Profile</a></li>
+                                    <li><a href='@Url.Action("LogOut","Home")'><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div>
+                @RenderBody()
+            </div>
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    <p style="margin:3px 20px 0px 0px">&copy; @DateTime.Now.Year - Smart Agora</p>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <!-- Bootstrap -->
+    <script src="../Scripts/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../Scripts/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../Scripts/vendors/nprogress/nprogress.js"></script>
+
+    <!-- bootstrap-wysiwyg -->
+    <script src="../Scripts/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="../Scripts/vendors/jquery-hotkeys/jquery.hotkeys.js"></script>
+    <script src="../Scripts/vendors/google-code-prettify/src/prettify.js"></script>
+    <script src="../Scripts/vendors/iCheck/icheck.js"></script>
+    <!-- Custom Theme Scripts -->
+    <!-- validator -->
+    <script src="../Scripts/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../Scripts/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../Scripts/vendors/jQuery-Smart-Wizard/jquery.smartWizard.js"></script>
+    <script src="~/Scripts/vendors/switchery/switchery.js"></script>
+    <script src="../Content/build/js/custom.min.js"></script>
+    <style>
+        .trans {
+            transition: width 0.5s;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+        });
+        function hideShowMapMenu() {
+            if ($('#googleMapParentDiv').hasClass('col-md-12')) {
+                $('#googleMapParentDiv').removeClass('col-md-12 col-sm-12 col-xs-12');
+                $('#googleMapParentDiv').addClass('col-md-11 col-sm-11 col-xs-11 trans');
+                setTimeout(function () {
+                    $('.mapMenu').show(500);
+                }, 500);
+
+            }
+            else {
+                $('.mapMenu').hide(500);
+                setTimeout(function () {
+                    $('#googleMapParentDiv').removeClass('col-md-11 col-sm-11 col-xs-11');
+                    $('#googleMapParentDiv').addClass('col-md-12 col-sm-12 col-xs-12 trans');
+                }, 500);
+
+
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

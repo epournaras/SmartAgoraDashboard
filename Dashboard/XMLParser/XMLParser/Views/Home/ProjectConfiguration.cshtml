@@ -1,0 +1,406 @@
+﻿@{
+    ViewBag.Title = "Create Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    var loadProjectIdsUrl = '@Url.Action("GetProjectsIds","Hive")';
+    var loadUsersUrl = '@Url.Action("GetUsersIds", "Hive")';
+    var loadAssetsUrls = '@Url.Action("GetAssetsIds", "Hive")';
+    var loadTaskIdsUrl = '@Url.Action("GetTasksIds", "Hive")';
+    var createProjectUrl = '@Url.Action("CreateProject", "Hive")';
+    var createTaskUrl = '@Url.Action("CreateTask", "Hive")';
+    var deleteProjectUrl = '@Url.Action("DeleteProject", "Hive")';
+    var createAssignmentUrl = '@Url.Action("CreateAssignment", "Hive")';
+</script>
+<script src="~/Scripts/XMLParser/projectConfiguration.js"></script>
+
+<div class="right_col" role="main">
+
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    <div class="row">
+        <!--*********************-->
+        <!--Project Creation Form-->
+        <!--*********************-->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="projectdiv">
+
+                <div class="x_panel" style="height:auto">
+                    <div class="x_title collapse-link">
+                        <h3>Project Creation</h3><img id="vicinityInfoSign" src="~/Content/img/info_icon.png" style="height: 20px;width: 20px;margin-top: 1px;margin-left: 4px; margin-bottom: 1px" data-toggle="tooltip" title="A project is a single crowdsourcing job. Everything else you create goes under the scope of a project." />
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a><i class="fa fa-chevron-down"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="x_content" style="display:none">
+                        <form class="form-horizontal form-label-left" >
+                            <div class="row ">
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="project_txtProjectName">
+                                                Project Name:<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <input type="text" class="form-control validating-fields" id="project_txtProjectName" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="project_txtProjectDesc">
+                                                Project Description:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <input type="text" class="form-control" id="project_txtProjectDesc" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="project_txtProjectDesc">
+                                                Help Text:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <textarea class="resizable_textarea form-control" id="helpText" placeholder="you can place help text here..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" stye="padding-right: 5px;" for="autoAssignment">
+                                                Auto Assignment Creation:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12" style="padding-top:10px">
+                                                <input type="checkbox" id="autoAssignment" class="js-switch" checked="checked" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:right">
+                                            <button id="btnCreateProject" type="button" class="btn btn-primary" style="width:150px">
+                                                Create Project
+                                            </button>
+                                        </div>
+                                    </div>
+</form>
+                        <br />
+
+                        <div id="projectResultDiv" class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <label for="result">Result:</label>
+                                <pre id="result"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--*********************-->
+        <!--Task Creation Form-->
+        <!--*********************-->
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="taskdiv">
+
+                <div class="x_panel" style="height:auto">
+                    <div class="x_title collapse-link">
+                        <h3>Task Creation</h3><img id="vicinityInfoSign" src="~/Content/img/info_icon.png" style="height: 20px;width: 20px;margin-top: 1px;margin-left: 4px; margin-bottom: 1px" data-toggle="tooltip" title="Tasks are individual actions to do on a data collection asset. A project can have one or more tasks." />
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a><i class="fa fa-chevron-down"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="x_content" style="display:none">
+                        <form class="form-horizontal form-label-left" novalidate>
+                            <div class="row ">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="task_drpProject">
+                                                Select Project:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <select id="task_drpProject" class="form-control required">
+                                                    <option value="" selected disabled hidden>Select Project</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="task_txtTaskName">
+                                                Task Name:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <input type="text" class="form-control validating-fields" id="task_txtTaskName" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="task_txtTaskDesc">
+                                                Task Description:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <input type="text" class="form-control validating-fields" id="task_txtTaskDesc" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 hide">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="task_drpState">
+                                                Task Current State:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <select id="task_drpState" class="form-control" required>
+                                                    <option value="available">available</option>
+                                                    <option value="waiting">waiting</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<div class="row">
+                                <h4>Completion Criteria</h4>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="task_txtTotal">
+                                                Total:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <input type="number" class="form-control validating-fields" id="task_txtTotal" min="0" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="task_txtMatching">
+                                                Matching:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <input type="number" class="form-control validating-fields" id="task_txtMatching" min="0" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="ln_solid"></div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:right">
+                                    <button id="btnCreateTask" type="button" class="btn btn-primary" style="width:150px">
+                                        Create Task
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <br />
+
+                        <div id="taskResultDiv" class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <label for="result">Result:</label>
+                                <pre id="result"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--************************-->
+        <!--Assignment Creation Form-->
+        <!--************************-->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="assignmentDiv">
+
+                <div class="x_panel" style="height:auto">
+                    <div class="x_title collapse-link">
+                        <h3>Create Assignment</h3><img id="vicinityInfoSign" src="~/Content/img/info_icon.png" style="height: 20px;width: 20px;margin-top: 1px;margin-left: 4px; margin-bottom: 1px" data-toggle="tooltip" title="Assignments are the work users have to do for a given task and data collection asset." />
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a><i class="fa fa-chevron-down"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="x_content" style="display:none">
+                        <form class="form-horizontal form-label-left" novalidate>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="assignment_drpProject">
+                                                Select Project:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <select id="assignment_drpProject" class="form-control required">
+                                                    <option value="" selected disabled hidden>Select Project</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="assignment_drpUser">
+                                                Select User:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <select id="assignment_drpUser" class="form-control required" multiple>
+                                                    <option value="" selected disabled hidden>Select User(s)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="assignment_drpTask">
+                                                Select Task:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <select id="assignment_drpTask" class="form-control required">
+                                                    <option value="" selected disabled hidden>Select Task</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="assignment_drpassignment">
+                                                Select Asset:
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                                <select id="assignment_drpAsset" class="form-control required">
+                                                    <option value="" selected disabled hidden>Select Asset</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:right">
+                                    <button id="btnCreateAssignment" type="button" class="btn btn-primary" style="width:150px">
+                                        Create Assignment
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <br />
+
+                        <div id="assignmentResultDiv" class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <label for="result">Result:</label>
+                                <pre id="result"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <!--*********************-->
+        <!--Project DeletionForm Form-->
+        <!--*********************-->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="projectdiv">
+
+                <div class="x_panel" style="height:auto">
+                    <div class="x_title collapse-link">
+                        <h3>Project Deletion</h3><img id="vicinityInfoSign" src="~/Content/img/info_icon.png" style="height: 20px;width: 20px;margin-top: 1px;margin-left: 4px; margin-bottom: 1px" data-toggle="tooltip" title="A project is a single crowdsourcing job. Everything else you create goes under the scope of a project." />
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a><i class="fa fa-chevron-down"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="x_content" style="display:none">
+                        <form class="form-horizontal form-label-left" >
+                            <div class="row ">
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="colmn">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="project_txtProjectName">
+                                                Project Id:<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                             @*  <input type="text" class="form-control validating-fields" id="project_txtProjectName" required> *@
+                                                 <input type="text" class="form-control validating-fields" id="project_txtProjectId" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                               
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:right">
+                                            @*<button id="btnCreateProject" type="button" class="btn btn-primary" style="width:150px">*@
+                                            <button id="btnDeleteProject" type="button" class="btn btn-primary" style="width:150px">
+                                                Delete Project
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+</form>
+                        <br />
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

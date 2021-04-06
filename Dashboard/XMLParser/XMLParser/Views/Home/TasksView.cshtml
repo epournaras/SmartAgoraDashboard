@@ -1,0 +1,284 @@
+﻿
+@{
+    ViewBag.Title = "AssetsView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    var taskObject = "";
+    var taskId = "";
+    $(document).ready(function () {
+        loadProjects();
+        var projectId = "";
+        
+        $('#drpProject').multiselect({
+            enableFiltering: true,
+            buttonWidth: '257px',
+            buttonClass: 'form-control',
+            inheritClass: true,
+            nonSelectedText: 'Select Project',
+            onChange: function (element, checked) {
+                $('#drpProject').multiselect('updateButtonText', true);
+                projects = $('#drpProject option:selected');
+                if (projects != null) {
+                    if (projects[0].value != 0) {
+                        projectId = projects[0].value;
+                        $("#overlay").css("display", "block");
+                        NProgress.start();
+                        loadTasksIds(projectId);
+                    }
+
+                }
+            }
+        });
+
+
+
+        $("#divResult").hide();
+
+        $('#drpTask').multiselect({
+            enableFiltering: true,
+            buttonWidth: '257px',
+            buttonClass: 'form-control',
+            inheritClass: true,
+            nonSelectedText: 'Select Asset',
+            onChange: function (element, checked) {
+                $('#drpTask').multiselect('updateButtonText', true);
+                var tasks = $('#drpTask option:selected');
+                if (tasks != null) {
+                    if (tasks[0].value != 0) {
+                        taskId = tasks[0].value;
+                        loadTaskData(projectId, taskId);
+                    }
+                    else {
+                        assetId = "";
+                    }
+                }
+            }
+
+        });
+    });
+
+        function loadProjects() {
+
+    $.ajax({
+        type: "POST",
+        url: '@Url.Action("GetProjectsIds","Hive")',
+        contentType: "application/json",
+        dataType: "json",
+        beforeSend: function () {
+            $("#overlay").css("display", "block");
+            NProgress.start();
+        },
+        complete: function () {
+            NProgress.done();
+            $("#overlay").css("display", "none");
+        },
+        success: function (data) {
+
+            var options = [];
+            options.push({ label: "Select Project", title: "Select Project", value: 0 });
+            for (var i = 0; i < data.aaData.length; i++) {
+                options.push({ label: data.aaData[i].Name, title: data.aaData[i].Name, value: data.aaData[i].Id });
+            }
+
+            $('#drpProject').multiselect('dataprovider', options);
+            $('#drpProject').multiselect('enable');
+
+
+        },
+        error: function (data, textStatus, jqXHR) {
+            new PNotify({
+                title: 'Error!',
+                text: "Load Project.Some error occured, please try again",
+                type: 'error',
+                delay: 2000
+            });
+        }
+    });
+}
+
+    function loadTasksIds(projectId) {
+        $.ajax({
+            type: "GET",
+            url:"@Url.Action("GetTasksIds", "Hive")",
+            data: { projectId: projectId },
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function () {
+                $("#overlay").css("display", "block");
+                NProgress.start();
+            },
+            complete: function () {
+                NProgress.done();
+                $("#overlay").css("display", "none");
+            },
+            success: function (data) {
+                if (data === "LogOut") {
+                    new PNotify({
+                        title: 'Info!',
+                        text: "Please Login to Load Task's List! ",
+                        type: 'info',
+                        delay: 2000,
+                        after_close: function () {
+                            var url = "/Home/Index";
+                            window.location.href = url;
+                        }
+                    });
+                }
+                else if (data.taskFoundMessage === "notaskfound") {
+                    new PNotify({
+                        title: 'Info!',
+                        text: "No Task Found in this Project!",
+                        type: 'info',
+                        delay: 2000
+                    });
+                    resetTasks();
+                    $("#divResult").hide();
+                }
+                else {
+                    var options = [];
+                    options.push({ label: "Select Task", title: "Select Task", value: 0 });
+                    for (var i = 0; i < data.aaData.length; i++) {
+                        options.push({ label: data.aaData[i].Name, title: data.aaData[i].Name, value: data.aaData[i].Id });
+                    }
+
+                    $('#drpTask').multiselect('dataprovider', options);
+                    $('#drpTask').multiselect('enable');
+
+                }
+            },
+            error: function (data, textStatus, jqXHR) {
+                new PNotify({
+                    title: 'Error!',
+                    text: "Some error occured, please try again",
+                    type: 'error',
+                    delay:2000
+                });
+            }
+        });
+    }
+
+    function loadTaskData(projectId, taskId) {
+        $.ajax({
+            type: "GET",
+            url:"@Url.Action("GetTaskData", "Hive")",
+            data: { projectId: projectId, TaskId: taskId },
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function () {
+                $("#overlay").css("display", "block");
+                NProgress.start();
+            },
+            complete: function () {
+                NProgress.done();
+                $("#overlay").css("display", "none");
+            },
+            success: function (data) {
+                if (data === "LogOut") {
+                    $("#divResult").hide();
+                    new PNotify({
+                        title: 'Info!',
+                        text: "Please Login to view Task! ",
+                        type: 'info',
+                        delay:2000,
+                        after_close: function () {
+                            var url = "/Home/Index";
+                            window.location.href = url;
+                        }
+                    });
+                }
+                else {
+                    var jsonObject = JSON.parse(data.aaData);
+                    var json = JSON.stringify(jsonObject, undefined, 2);
+                    taskObject = jsonObject;
+                    document.getElementById('result').innerHTML = json;
+                    $("#divResult").show();
+                }
+            },
+            error: function (data, textStatus, jqXHR) {
+                new PNotify({
+                    title: 'Error!',
+                    text: "Some error occured, please try again",
+                    type: 'error',
+                    delay:2000
+                });
+            }
+        });
+    }
+    function resetTasks() {
+        assignment_assetId = "";
+        $('#drpTask').empty();
+        $('#drpTask').append('<option value="" selected disabled hidden>Select Task</option>');
+        $('#drpTask').multiselect('disable');
+        $('#drpTask').multiselect('updateButtonText', true);
+    }
+
+    function downloadTaskObject() {
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(taskObject,undefined, 2));
+        var dlAnchorElem = document.getElementById('downloadAnchorElem');
+        dlAnchorElem.setAttribute("href", dataStr);
+        dlAnchorElem.setAttribute("download", taskId+".json");
+        dlAnchorElem.click();
+    }
+</script>
+<a id="downloadAnchorElem" href=""></a>
+<div class="right_col" role="main">
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h3>Task View</h3>
+        </div>
+        <div class="x_content">
+            <form class="form-horizontal form-label-left" novalidate>
+                <div class="row ">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="drpProject">
+                                    Select Project:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <select id="drpProject" class="form-control required">
+                                        <option value="" selected disabled hidden>Select Project</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="drpTask">
+                                    Select Task:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <select id="drpTask" class="form-control" disabled="disabled">
+                                        <option value="" selected disabled hidden>Select Task</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+            <br />
+            <div id="divResult" class="row">
+
+                <div class="col-lg-9">
+                    <label for="result">Result:</label><i class="fa fa-download fa-lg" onclick="downloadTaskObject()" style="cursor: pointer;margin-left: 10px" aria-hidden="true"></i>
+                    <pre id="result"></pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "HiveView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<h2>HiveView</h2>
+<div>
+    <script>
+        function btnShowAssets() {
+            alert("btnShowAssets()");
+            $.ajax({
+                type: "GET",
+                url: '@Url.Content("~/api/xmlparser/GetAllProjects")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: true,
+                success: function (data, textStatus, jqXHR) {
+                    $("#displayParagraph").html(data);
+                    ajaxreturncode = jqXHR.status;
+                    alert(textStatus);
+                },
+                error: function (data, textStatus, jqXHR) {
+                    $("#displayParagraph").html(data);
+                    ajaxreturncode = jqXHR.status;
+                    alert(textStatus);
+                }
+            });
+
+        }
+
+        function btnShowTasks() {
+            alert("btnShowTasks()");
+        }
+
+        function btnShowUsers() {
+            alert("btnShowUsers()");
+        }
+
+        function btnManageAssignments() {
+            alert("btnManageAssignments()");
+        }
+
+    </script>
+    <table>
+        <tr>
+            <td><button onclick="btnShowAssets()">Show Assets</button></td>
+            <td><button onclick="btnShowTasks">Show Tasks</button></td>
+            <td><button onclick="btnShowUsers">Show Users</button></td>
+            <td><button onclick="btnManageAssignments">Assign Assignments to User</button></td>
+        </tr>
+    </table>
+    <div id="displayData">
+        <p id="displayParagraph"></p>
+    </div>
+</div>
