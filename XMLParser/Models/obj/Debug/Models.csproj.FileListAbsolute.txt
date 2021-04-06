@@ -1,0 +1,50 @@
+C:/Users/hp/Documents/GitHub/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.dll
+C:/Users/hp/Documents/GitHub/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.pdb
+C:/Users/hp/Documents/GitHub/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.dll
+C:/Users/hp/Documents/GitHub/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.pdb
+C:/Users/hp/Documents/GitHub/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.pdb
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.csprojResolveAssemblyReference.cache
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.csprojResolveAssemblyReference.cache
+G:/GitHub/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+G:/GitHub/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.pdb
+F:/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.dll
+F:/SocialExperimentRepository/XMLParser/Models/bin/Debug/Models.pdb
+F:/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.csprojResolveAssemblyReference.cache
+F:/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+F:/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.dll
+F:/SocialExperimentRepository/XMLParser/Models/obj/Debug/Models.pdb
+F:/GitHub/Dashboard/XMLParser/Models/bin/Debug/Models.dll
+F:/GitHub/Dashboard/XMLParser/Models/bin/Debug/Models.pdb
+F:/GitHub/Dashboard/XMLParser/Models/obj/Debug/Models.csprojAssemblyReference.cache
+F:/GitHub/Dashboard/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+F:/GitHub/Dashboard/XMLParser/Models/obj/Debug/Models.dll
+F:/GitHub/Dashboard/XMLParser/Models/obj/Debug/Models.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/Models/bin/Debug/Models.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/Models/bin/Debug/Models.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/Models/obj/Debug/Models.csprojAssemblyReference.cache
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/Models/obj/Debug/Models.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/Models/obj/Debug/Models.pdb
+C:/E Drive/GitHub/Dashboard/XMLParser/Models/bin/Debug/Models.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/Models/bin/Debug/Models.pdb
+C:/E Drive/GitHub/Dashboard/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+C:/E Drive/GitHub/Dashboard/XMLParser/Models/obj/Debug/Models.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/Models/obj/Debug/Models.pdb
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/Models/bin/Debug/Models.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/Models/bin/Debug/Models.pdb
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Debug/Models.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Debug/Models.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/bin/Debug/Models.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/bin/Debug/Models.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Debug/Models.csproj.CoreCompileInputs.cache
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Debug/Models.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Debug/Models.pdb

@@ -1,0 +1,117 @@
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Models.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Models.pdb
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.xml
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.csprojResolveAssemblyReference.cache
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+F:/Github/Other Stuff/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Models.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Models.pdb
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.xml
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.csprojResolveAssemblyReference.cache
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+G:/GitHub/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.pdb
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Models.dll
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.dll
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Models.pdb
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+F:/SocialExperimentRepository/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.xml
+F:/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.csprojResolveAssemblyReference.cache
+F:/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+F:/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+F:/SocialExperimentRepository/XMLParser/HiveServer/obj/Debug/HiveServer.pdb
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Models.dll
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.dll
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Models.pdb
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+F:/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.xml
+F:/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csprojAssemblyReference.cache
+F:/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+F:/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CopyComplete
+F:/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+F:/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csprojAssemblyReference.cache
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.dll.config
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Models.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Nest.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.dll
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Models.pdb
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Nest.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.xml
+D:/Panacea Solution for Dashboard/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CopyComplete
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.dll.config
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Models.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Nest.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Models.pdb
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.xml
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Nest.xml
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.xml
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csprojResolveAssemblyReference.cache
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+C:/E Drive/GitHub/Dashboard/XMLParser/HiveServer/obj/Debug/HiveServer.pdb
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/HiveServer.dll.config
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Models.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Nest.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Models.pdb
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.xml
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Nest.xml
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/System.Net.Http.Formatting.xml
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.csprojResolveAssemblyReference.cache
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+C:/E Drive/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/HiveServer.dll.config
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/HiveServer.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/HiveServer.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Models.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Nest.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Models.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Elasticsearch.Net.xml
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Nest.xml
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/bin/Debug/Newtonsoft.Json.xml
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.csprojAssemblyReference.cache
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CoreCompileInputs.cache
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.csproj.CopyComplete
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/HiveServer/obj/Debug/HiveServer.pdb

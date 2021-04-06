@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{6DDF2745-42EF-48B9-A26C-D161E2887B8C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XMLParser/Views/Home/MyXMLParser.cshtml">
+    <Files>
+      <File FileName="XMLParser/Web.config" Line="13" Column="32" />
+      <File FileName="XMLParser/Views/Home/Index.cshtml" Line="32" Column="38" />
+      <File FileName="XMLParser/Views/Home/MyXMLParser.cshtml" Line="491" Column="1" />
+      <File FileName="XMLParser/Views/Home/XMLParserForm.cshtml" Line="5" Column="21" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.XMLParser PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

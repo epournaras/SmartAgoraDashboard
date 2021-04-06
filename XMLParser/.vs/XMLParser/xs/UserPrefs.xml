@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{6DDF2745-42EF-48B9-A26C-D161E2887B8C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XMLParser/Controllers/XMLParser/XMLParserController.cs">
+    <Files>
+      <File FileName="XMLParser/Controllers/HiveController.cs" Line="363" Column="48" />
+      <File FileName="HiveServer/Client.cs" />
+      <File FileName="XMLParser/Controllers/HomeController.cs" />
+      <File FileName="XMLParser/Controllers/XMLParser/XMLParserController.cs" Line="48" Column="43" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="XMLParser" expanded="True">
+            <Node name="HiveServer" expanded="True" />
+            <Node name="Models" expanded="True" />
+            <Node name="XMLParser" expanded="True">
+              <Node name="App_Start" expanded="True" />
+              <Node name="Areas" expanded="True" />
+              <Node name="AuthenticationDTO" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="XMLParser" expanded="True">
+                  <Node name="XMLParserController.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Global.asax" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.ItemProperties.XMLParser PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{6DDF2745-42EF-48B9-A26C-D161E2887B8C}" ItemName="XMLParser" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

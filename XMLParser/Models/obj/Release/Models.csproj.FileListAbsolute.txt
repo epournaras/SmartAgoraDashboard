@@ -1,0 +1,10 @@
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/bin/Release/Models.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/bin/Release/Models.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Release/Models.csproj.CoreCompileInputs.cache
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Release/Models.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraBackend/XMLParser/Models/obj/Release/Models.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraDashboard/XMLParser/Models/bin/Release/Models.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraDashboard/XMLParser/Models/bin/Release/Models.pdb
+/Users/renatokunz/Documents/GitHub/SmartAgoraDashboard/XMLParser/Models/obj/Release/Models.csproj.CoreCompileInputs.cache
+/Users/renatokunz/Documents/GitHub/SmartAgoraDashboard/XMLParser/Models/obj/Release/Models.dll
+/Users/renatokunz/Documents/GitHub/SmartAgoraDashboard/XMLParser/Models/obj/Release/Models.pdb
