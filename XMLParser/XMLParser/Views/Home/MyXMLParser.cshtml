@@ -1,0 +1,634 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $("#home").addClass('current-page');
+    });
+</script>
+<div class="right_col" role="main">
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h3>Asset Creation</h3>
+        </div>
+        <div class="x_content" style="text-align:center">
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#Map" id="map-tab" role="tab" data-toggle="tab" aria-expanded="true">Map</a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="#Form" role="tab" id="form-tab" data-toggle="tab" aria-expanded="false">Form</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="Map" aria-labelledby="map-tab">
+
+                        <div class="row">
+                            <h3> Please select checkpoint from map</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <div id="checkStartDest">
+                                            <label>
+                                                Start:
+                                            </label>
+                                            <input type="radio" style="margin-top: 3px;" id="txtstartAddressPointer" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <div id="checkStartDest">
+                                            <label>
+                                                Destination:
+                                            </label>
+                                            <input type="radio" style="margin-top: 3px;" id="txtdestAddressPointer" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                <div class="row">
+                                    <div class="item form-group">
+
+                                        <div id="QuestionRadioBtnOnMap">
+                                            <label>
+                                                Question:
+                                            </label>
+                                            <input type="radio" style="margin-top: 3px;" id="txtquestionAddressPointer" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <div id="DIASCheckpointAddressRadioBtnOnMap">
+                                            @*it shuld be none*@
+                                            <label>
+                                                Group Address:
+                                            </label>
+                                            <input type="radio" style="margin-top: 3px;" id="txtDIASCheckpointAddressPointer" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div id="googleMap" style="width: 100%;height: 311px;float: left;margin-top: 15px;position: relative;overflow: hidden;"></div>
+                            </div>
+                            <script>
+                                var startAvailable = false;
+                                var destAvailable = false;
+                                var desiredAvailable = false;
+                                var startLatitude = null;
+                                var startLongitude = null;
+                                var destinationLatitude = null;
+                                var destinationLongitude = null;
+                                var questionLatitude = null;
+                                var questionLongitude = null;
+                                var startLocationMarker = null;
+                                var destinationLocationMarker = null;
+                                var desiredLocationMarker = null;
+                                var homeLocationMarker = null;
+                                var map;
+
+                                function showResult(addresslat, addresslng) {
+                                    if (startAvailable === true) {
+                                        startLatitude = addresslat;
+                                        startLongitude = addresslng;
+                                        if (startLocationMarker === null) {
+                                            startLocationMarker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(startLatitude, startLongitude),
+                                                //label: { text: 'A', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                map: map,
+                                                icon: '/Content/img/green-dot.png'
+                                            });
+                                            map.setZoom(14);
+                                            map.panTo(startLocationMarker.position);
+                                        } else {
+                                            startLocationMarker.setPosition(
+                                                new google.maps.LatLng(
+                                                    startLatitude,
+                                                    startLongitude
+                                                )
+                                            );
+                                        }
+                                        startAvailable = false;
+                                    }
+                                    if (destAvailable === true) {
+                                        destinationLatitude = addresslat;
+                                        destinationLongitude = addresslng;
+                                        if (destinationLocationMarker === null) {
+                                            destinationLocationMarker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                                                //label: { text: 'B', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                map: map,
+                                                icon: '/Content/img/red-dot.png'
+                                            });
+                                            map.setZoom(14);
+                                            map.panTo(destinationLocationMarker.position);
+                                        } else {
+                                            destinationLocationMarker.setPosition(
+                                                new google.maps.LatLng(
+                                                    destinationLatitude,
+                                                    destinationLongitude
+                                                )
+                                            );
+                                        }
+                                        destAvailable = false;
+                                    }
+                                    if (desiredAvailable === true) {
+
+                                        questionLatitude = addresslat;
+                                        questionLongitude = addresslng;
+                                        if (desiredLocationMarker === null) {
+                                            desiredLocationMarker = new google.maps.Marker({
+                                                position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                                                //label: { text: 'Q', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                map: map,
+                                                icon: '/Content/img/blue-dot.png'
+                                            });
+                                            map.setZoom(14);
+                                            map.panTo(desiredLocationMarker.position);
+                                        } else {
+                                            desiredLocationMarker.setPosition(
+                                                new google.maps.LatLng(
+                                                    questionLatitude,
+                                                    questionLongitude
+                                                )
+                                            );
+                                        }
+                                        desiredAvailable = false;
+                                    }
+                                }
+                                function showResultbtn(result) {
+
+                                    var addresslat = result.geometry.location.lat();
+                                    var addresslng = result.geometry.location.lng();
+                                    if (addresslat === 47.3770065 && addresslng == 8.54391099999998) {
+                                        swal({
+                                            title: 'Info!',
+                                            text: "Please enter a address: ",
+                                            type: 'info',
+                                            confirmButtonText: 'Ok'
+                                        });
+                                        //
+                                        //var homeLatitude = addresslat;
+                                        //var homeLongitude = addresslng;
+                                        //if (homeLocationMarker === null) {
+                                        //    homeLocationMarker = new google.maps.Marker({
+                                        //        position: new google.maps.LatLng(homeLatitude, homeLongitude),
+                                        //        map: map
+                                        //    });
+                                        //    map.setZoom(10)
+                                        //    map.panTo(homeLocationMarker.position);
+                                        //} else {
+                                        //    homeLocationMarker.setPosition(
+                                        //        new google.maps.LatLng(
+                                        //            homeLatitude,
+                                        //            homeLongitude
+                                        //        )
+                                        //    );
+                                        //    map.setZoom(10)
+                                        //    map.panTo(homeLocationMarker.position);
+                                        //}
+
+                                        //startAvailable = false;
+                                        //destAvailable = false;
+                                        //desiredAvailable = false;
+                                    }
+
+                                    else {
+                                        if (startAvailable === true) {
+
+                                            startLatitude = addresslat;
+                                            startLongitude = addresslng;
+                                            if (startLocationMarker === null) {
+                                                startLocationMarker = new google.maps.Marker({
+                                                    position: new google.maps.LatLng(startLatitude, startLongitude),
+                                                    //label: { text: 'Start', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                    map: map,
+                                                    icon: '/Content/img/green-dot.png'
+                                                });
+                                                map.setZoom(14);
+                                                map.panTo(startLocationMarker.position);
+                                            } else {
+                                                startLocationMarker.setPosition(
+                                                    new google.maps.LatLng(
+                                                        startLatitude,
+                                                        startLongitude
+                                                    )
+                                                );
+                                                map.setZoom(14);
+                                                map.panTo(startLocationMarker.position);
+                                            }
+                                            startAvailable = false;
+                                        }
+                                        if (destAvailable === true) {
+
+                                            destinationLatitude = addresslat;
+                                            destinationLongitude = addresslng;
+                                            if (destinationLocationMarker === null) {
+                                                destinationLocationMarker = new google.maps.Marker({
+                                                    position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                                                    //label: { text: 'Destination', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                    map: map,
+                                                    icon: '/Content/img/red-dot.png'
+                                                });
+                                                map.setZoom(14);
+                                                map.panTo(destinationLocationMarker.position);
+                                            } else {
+                                                destinationLocationMarker.setPosition(
+                                                    new google.maps.LatLng(
+                                                        destinationLatitude,
+                                                        destinationLongitude
+                                                    )
+                                                );
+                                                map.setZoom(14);
+                                                map.panTo(destinationLocationMarker.position);
+                                            }
+                                            destAvailable = false;
+
+                                        }
+                                        if (desiredAvailable === true) {
+                                            questionLatitude = addresslat;
+                                            questionLongitude = addresslng;
+                                            if (desiredLocationMarker === null) {
+                                                desiredLocationMarker = new google.maps.Marker({
+                                                    position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                                                    //label: { text: 'Desired', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                                                    map: map,
+                                                    icon: '/Content/img/blue-dot.png'
+                                                });
+                                                //if ($("#optMode").val() == "Simple") {
+                                                map.setZoom(14);
+                                                map.panTo(desiredLocationMarker.position);
+                                                //}
+                                            } else {
+                                                desiredLocationMarker.setPosition(
+                                                    new google.maps.LatLng(
+                                                        questionLatitude,
+                                                        questionLongitude
+                                                    )
+                                                );
+                                                //if ($("#optMode").val() == "Simple") {
+                                                map.setZoom(14);
+                                                map.panTo(desiredLocationMarker.position);
+                                                //}
+                                            }
+                                            desiredAvailable = false;
+                                        }
+                                    }
+                                }
+
+                                function getLatitudeLongitude(callback, address) {
+                                    // If address is not supplied, use default value 'Ferrol, Galicia, Spain'
+                                    address = address || 'Central, 8001 Zürich, Switzerland'/*'Ferrol, Galicia, Spain'*/;
+                                    // Initialize the Geocoder
+                                    geocoder = new google.maps.Geocoder();
+                                    if (geocoder) {
+                                        geocoder.geocode({
+                                            'address': address
+                                        }, function (results, status) {
+                                            if (status == google.maps.GeocoderStatus.OK) {
+                                                callback(results[0]);
+                                            } else {
+                                                //alert('Please enter a correct address: ' + status);
+                                                swal({
+                                                    title: 'Info!',
+                                                    text: "Please enter a correct address: " + status,
+                                                    type: 'info',
+                                                    confirmButtonText: 'Ok'
+                                                });
+                                            }
+                                        });
+                                    }
+                                }
+
+
+                                document.getElementById("btnStartAddress").addEventListener("click", function () {
+                                    var startAddress = document.getElementById('startAddress').value;
+                                    startAvailable = true;
+
+                                    getLatitudeLongitude(showResultbtn, startAddress)
+                                });
+                                document.getElementById("btnDestinationAddress").addEventListener("click", function () {
+                                    var DestinationAddress = document.getElementById('destinationAddress').value;
+                                    destAvailable = true;
+                                    getLatitudeLongitude(showResultbtn, DestinationAddress)
+                                });
+
+                                document.getElementById("btnQuestionAddress").addEventListener("click", function () {
+                                    var QuestionAddress = document.getElementById('questionAddress').value;
+                                    desiredAvailable = true;
+                                    getLatitudeLongitude(showResultbtn, QuestionAddress)
+                                });
+
+                                document.getElementById("btnDIASCheckpointAddress").addEventListener("click", function () {
+                                    var DIASCheckpointAddress = document.getElementById('DIASCheckpointAddress').value;
+                                    desiredAvailable = true;
+                                    getLatitudeLongitude(showResultbtn, DIASCheckpointAddress)
+                                });
+
+                                $(document).on('click', '#txtstartAddressPointer', function () {
+                                    if (this.checked) {
+                                        if ($('#txtdestAddressPointer').is(":checked") === true || $('#txtquestionAddressPointer').is(":checked") === true || $("#txtDIASCheckpointAddressPointer").is(":checked") === true) {
+                                            $("#txtdestAddressPointer").prop('checked', false);
+                                            $("#txtquestionAddressPointer").prop('checked', false);
+                                            $("#txtDIASCheckpointAddressPointer").prop('checked', false);
+                                        }
+                                    }
+                                });
+                                $(document).on('click', '#txtdestAddressPointer', function () {
+                                    if (this.checked) {
+                                        if ($('#txtstartAddressPointer').is(":checked") === true || $('#txtquestionAddressPointer').is(":checked") === true || $("#txtDIASCheckpointAddressPointer").is(":checked") === true) {
+                                            $("#txtstartAddressPointer").prop('checked', false);
+                                            $("#txtquestionAddressPointer").prop('checked', false);
+                                            $("#txtDIASCheckpointAddressPointer").prop('checked', false);
+                                        }
+                                    }
+                                });
+                                $(document).on('click', '#txtquestionAddressPointer', function () {
+                                    if (this.checked) {
+                                        if ($('#txtdestAddressPointer').is(":checked") === true || $('#txtstartAddressPointer').is(":checked") === true || $("#txtDIASCheckpointAddressPointer").is(":checked") === true) {
+                                            $("#txtdestAddressPointer").prop('checked', false);
+                                            $("#txtstartAddressPointer").prop('checked', false);
+                                            $("#txtDIASCheckpointAddressPointer").prop('checked', false);
+                                        }
+                                    }
+                                });
+                                $(document).on('click', '#txtDIASCheckpointAddressPointer', function () {
+                                    if (this.checked) {
+                                        if ($('#txtdestAddressPointer').is(":checked") === true || $('#txtstartAddressPointer').is(":checked") === true || $('#txtquestionAddressPointer').is(":checked") === true) {
+                                            $("#txtdestAddressPointer").prop('checked', false);
+                                            $("#txtstartAddressPointer").prop('checked', false);
+                                            $("#txtquestionAddressPointer").prop('checked', false);
+                                        }
+                                    }
+                                });
+
+                                function myMap() {
+                                    var directions = {};
+                                    var directionsDisplay = new google.maps.DirectionsRenderer();
+                                    var directionsService = new google.maps.DirectionsService();
+                                    var mapProp = {
+                                        center: new google.maps.LatLng(47.3770065, 8.54391099999998),
+                                        zoom: 10,
+                                    };
+                                    map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                                    //var marker = new google.maps.Marker({
+                                    //    position: new google.maps.LatLng(47.3770065, 8.54391099999998),
+                                    //    map: map,
+                                    //    icon:'/Content/img/red-dot.png'
+                                    //});
+                                    var startLatLng;
+                                    var destinationLatLng;
+                                    var desiredLatLng;
+                                    var requiredAddress = null;
+
+                                    google.maps.event.addListener(map, "click", function (e) {
+                                        var selectedLatLng = e.latLng;
+                                        geocoder = new google.maps.Geocoder();
+                                        geocoder.geocode({
+                                            'latLng': e.latLng
+                                        }, function (results, status) {
+                                            if (status == google.maps.GeocoderStatus.OK) {
+                                                if (results[0]) {
+                                                    if ($('#txtstartAddressPointer').is(":checked") === true) {
+                                                        document.getElementById('startAddress').value = results[0].formatted_address;
+                                                        startAvailable = true;
+                                                        showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                    }
+                                                    if ($('#txtdestAddressPointer').is(":checked") === true) {
+                                                        document.getElementById('destinationAddress').value = results[0].formatted_address;
+                                                        destAvailable = true;
+                                                        showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                    }
+                                                    if ($('#txtquestionAddressPointer').is(":checked") === true) {
+                                                        document.getElementById('questionAddress').value = results[0].formatted_address;
+                                                        desiredAvailable = true;
+                                                        showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                    }
+                                                    if ($('#txtDIASCheckpointAddressPointer').is(":checked") === true) {
+                                                        document.getElementById('DIASCheckpointAddress').value = results[0].formatted_address;
+                                                        desiredAvailable = true;
+                                                        showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                                    }
+
+                                                    if ($('#txtstartAddressPointer').is(":checked") === false && $('#txtdestAddressPointer').is(":checked") === false && $('#txtquestionAddressPointer').is(":checked") === false && $('#txtDIASCheckpointAddressPointer').is(":checked") === false) {
+                                                        //alert("Please check one of the location above!");
+                                                        swal({
+                                                            title: 'Info!',
+                                                            text: "Please check one of the location above!",
+                                                            type: 'info',
+                                                            confirmButtonText: 'Ok'
+                                                        });
+                                                        return;
+                                                    }
+                                                }
+                                            }
+
+                                        });
+                                    });
+
+                                    google.maps.event.addDomListener(window, 'keydown', function (event) {
+
+                                        if (event.keyCode === 13) {
+                                            event.preventDefault();
+                                            if ($("#startAddress").is(":focus")) {
+                                                $("#btnStartAddress").click();
+                                            }
+                                            else if ($("#destinationAddress").is(":focus")) {
+                                                $("#btnDestinationAddress").click();
+                                            }
+                                            else if ($("#questionAddress").is(":focus")) {
+                                                $("#btnQuestionAddress").click();
+                                            }
+                                            else if ($("#DIASCheckpointAddress").is(":focus")) {
+                                                $("#btnDIASCheckpointAddress").click();
+                                            }
+                                        }
+                                    });
+                                    google.maps.event.addDomListener(window, 'load', initialize);
+                                    function initialize() {
+                                        var startaddressinput = document.getElementById('startAddress');
+                                        var startaddressautocomplete = new google.maps.places.Autocomplete(startaddressinput);
+
+                                        var destinationaddressinput = document.getElementById('destinationAddress');
+                                        var destinationaddressautocomplete = new google.maps.places.Autocomplete(destinationaddressinput);
+
+                                        var questionaddressinput = document.getElementById('questionAddress');
+                                        var questionaddressautocomplete = new google.maps.places.Autocomplete(questionaddressinput);
+
+                                        var DIASCheckpointaddressinput = document.getElementById('DIASCheckpointAddress');
+                                        var DIASCheckpointaddresscomplete = new google.maps.places.Autocomplete(DIASCheckpointaddressinput);
+
+                                    }
+                                }
+
+                                $(window).load(function () {
+                                    // PAGE IS FULLY LOADED
+                                    // FADE OUT YOUR OVERLAYING DIV
+                                    $('#loader').addClass("hide");
+                                });
+
+                            </script>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsdm2NgCWmLb7rWaBjxkF0co3N3Hhehbg&v=3.exp&sensor=false&libraries=places&callback=myMap"></script>
+                        </div>
+                        <br />
+                        <div class="row" style="text-align:right">
+
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"><button class="btn btn-primary" style="width:150px" id="btnHivesubmit" onclick="submitForHive()">Submit &raquo;</button></div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"><button class="btn btn-primary" style="width:150px" id="btnsubmit" onclick="submitFormevent()">Create JSON &raquo;</button></div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"><button class="btn btn-primary" style="width:150px" id="btnDownloadXMLFile" hidden="hidden" onclick="downloadFile()">Download JSON</button></div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"><button class="btn btn-primary" style="width:150px" id="btnreset" onClick="refreshPage()">Reset &raquo;</button></div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade" id="Form" aria-labelledby="form-tab">
+                        <div id="wizard" class="form_wizard wizard_horizontal">
+                            <ul class="wizard_steps">
+                                <li>
+                                    <a href="#startAndDestinationSection">
+                                        <span class="step_no"></span>
+                                        <span class="step_descr">
+                                            Step 1<br />
+                                            <small>Step 1 description</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-2">
+                                        <span class="step_no">2</span>
+                                        <span class="step_descr">
+                                            Step 2<br />
+                                            <small>Step 2 description</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-3">
+                                        <span class="step_no">3</span>
+                                        <span class="step_descr">
+                                            Step 3<br />
+                                            <small>Step 3 description</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-4">
+                                        <span class="step_no">4</span>
+                                        <span class="step_descr">
+                                            Step 4<br />
+                                            <small>Step 4 description</small>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="startAndDestinationSection">
+                                <form class="form-horizontal form-label-left">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                            First Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                            Last Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div id="gender" class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                    <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
+                                                </label>
+                                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                    <input type="radio" name="gender" value="female"> Female
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            Date Of Birth <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="step-2">
+                                <h2 class="StepTitle">Step 2 Content</h2>
+                                <p>
+                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                            <div id="step-3">
+                                <h2 class="StepTitle">Step 3 Content</h2>
+                                <p>
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                            <div id="step-4">
+                                <h2 class="StepTitle">Step 4 Content</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+    </div>
+    

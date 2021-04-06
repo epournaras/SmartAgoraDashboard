@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart Agora | Login </title>
+    <!-- Bootstrap -->
+    <link href="../Scripts/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../Scripts/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../Scripts/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="../Scripts/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../Content/build/css/custom.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="../Scripts/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Pnotify css -->
+    <link href="../Content/pnotify/pnotify.custom.min.css" rel="stylesheet" />
+
+    <script src="../Scripts/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/pnotify/pnotify.custom.js"></script>
+    <!-- NProgress -->
+    <script src="../Scripts/vendors/nprogress/nprogress.js"></script>
+
+    <!--Defualt styling for PNotify-->
+    <script>PNotify.prototype.options.styling = "bootstrap3";</script>
+</head>
+<body class="login">
+    <div id="overlay"></div>
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <form>
+                        <h1>Login Form</h1>
+                        <div>
+                            <input type="text" id="emailorusername" class="form-control" placeholder="Username/Email" required="required" />
+                        </div>
+                        <div>
+                            <input type="password" id="password" class="form-control" placeholder="Password" required="required" />
+                        </div>
+                        <div>
+                            <button class="btn btn-default" type="button" disabled="true" id="signinbtn">Log in</button>
+                            @*<a class="reset_pass" href="#">Lost your password?</a>*@
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <p class="change_link">
+                                New to Dashboard?
+                                <a href="#signup" class="to_register"> Create Account </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><img src="../Content/img/logo.png" />Smart Agora</h1>
+                                <p>©@DateTime.Now.Year All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div id="register" class="animate form registration_form">
+                <section class="login_content">
+                    <form>
+                        <h1>Create Account</h1>
+                        <div class="form-group has-feedback">
+                            <input type="text" id="firstname" class="form-control" placeholder="First Name" />
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="text" id="lastname" class="form-control" placeholder="Last Name"  />
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="text" id="username" class="form-control" placeholder="Username"  />
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="email" id="email" class="form-control" placeholder="Email"  />
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="password" id="signuppassword" class="form-control" placeholder="Password"  />
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="password" id="confirmpassword" class="form-control" placeholder="Confirm Password"  />
+                            <span class="glyphicon glyphicon-repeat form-control-feedback"></span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <input type="text" id="studentid" class="form-control" placeholder="Student Id"  />
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        @*<div>
+                                <label>
+                                    <input type="checkbox"> I agree to the <a href="#">terms</a>
+                                </label>
+                            </div>*@
+                        <div>
+                            <button class="btn btn-default" type="button" id="registerbtn">Submit</button>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <p class="change_link">
+                                Already a member ?
+                                <a href="#signin" class="to_register"> Log in </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><img src="../Content/img/logo.png" />Smart Agora</h1>
+                                <p>©@DateTime.Now.Year All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#confirmpassword, #signuppassword").keyup(function () {
+                if ($("#confirmpassword").val() === $("#signuppassword").val() && $("#signuppassword").val().length > 0) {
+                    $("#confirmpassword").next().removeClass("glyphicon-repeat");
+                    $("#confirmpassword").next().addClass("glyphicon-ok");
+                }
+                else {
+                    $("#confirmpassword").next().removeClass("glyphicon-ok");
+                    $("#confirmpassword").next().addClass("glyphicon-repeat");
+                }
+            });
+
+            var RegisterCall = '@Url.Content("~/Home/RegisterCall")';
+            $("#registerbtn").on("click", function () {
+                var firstName = $("#firstname").val();
+                var lastName = $("#lastname").val();
+                var email = $("#email").val();
+                var pwd = $("#signuppassword").val();
+                var studentId = $("#studentid").val();
+                var username = $("#username").val();
+                var cnfrmpwd = $("#confirmpassword").val();
+
+                var msg = "please add :</br>";
+                if (firstName == "") {
+                    msg += "=> First Name</br>";
+                }
+                if (lastName == "") {
+                    msg += "=> Last Name</br>";
+                }
+                var regex = /^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (email == "" || !(regex.test(email))) {
+                    msg += "=> Email</br>";
+                }
+                if(pwd==""){
+                    msg += "=> Password</br>";
+                }
+                if (username == "") {
+                    msg += "=> User Name</br>";
+                }
+                if (pwd!==cnfrmpwd) {
+                    msg += "=> Same Password and Confirm Password"
+                }
+
+                if (msg != "please add :</br>") {
+                    msg = "Before Signing up, " + msg;
+                    new PNotify({
+                        title: 'Info!',
+                        text: msg,
+                        type: 'info',
+                        delay: 3000
+                    });
+                    return;
+                }
+                if (msg === "please add :</br>") {
+                    var registerDob = {};
+                    registerDob.FirstName = firstName;
+                    registerDob.LastName = lastName;
+                    registerDob.username = username;
+                    registerDob.StudentId = studentId;
+                    registerDob.EmailId = email;
+                    registerDob.Password = pwd;
+
+                    $.ajax({
+                        type: "POST",
+                        url: RegisterCall,
+                        data: JSON.stringify(registerDob),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        beforeSend: function () {
+                            $("#overlay").css("display", "block");
+                            NProgress.start();
+                        },
+                        complete: function () {
+                            NProgress.done();
+                            $("#overlay").css("display", "none");
+                        },
+                        success: function (data) {
+                            if (data === true) {
+                                new PNotify({
+                                    title: 'Signup!',
+                                    text: 'Successfully Signup.',
+                                    type: 'success',
+                                    delay: 2000,
+                                    after_close: function () {
+                                        window.location.href = '/Home/Index';
+                                    }
+                                });
+                            }
+                            else {
+                                new PNotify({
+                                    title: 'Info',
+                                    text: data,
+                                    type: 'info',
+                                    delay: 2000
+                                });
+                            }
+                        },
+                        error: function (data, textStatus, jqXHR) {
+                            new PNotify({
+                                title: 'Error!',
+                                text: 'Something terrible happened.',
+                                type: 'error',
+                                delay: 2000
+                            });
+                        }
+                    });
+                }
+                });
+
+
+            setTimeout(function () {
+                if (($("#emailorusername").val().length > 0 && ($("#password").val().length > 0)) || ($("#password").css('background-color') == "rgb(250, 255, 189)" && $("#emailorusername").css('background-color') == "rgb(250, 255, 189)")) {
+                    $("#signinbtn").attr("disabled", false);
+                }
+            }, 1000);
+
+            var LoginCall = '@Url.Content("~/Home/LoginCall")';
+            $("#signinbtn").on("click", function () {
+                var usernameoremail = $("#emailorusername").val();
+                var pwd = $("#password").val();
+                $.ajax({
+                    type: "POST",
+                    url: LoginCall,
+                    data: JSON.stringify({ "email": usernameoremail, "password": pwd }),
+                    contentType: "application/json",
+                    dataType: "json",
+                    beforeSend: function () {
+                        $("#overlay").css("display", "block");
+                        NProgress.start();
+                    },
+                    complete: function () {
+                        NProgress.done();
+                        $("#overlay").css("display", "none");
+                    },
+                    success: function (data) {
+                        if (data === true) {
+
+                            var url = '@Url.Action("index", "Home", null)';
+                            window.location.href = url;
+
+                        } else {
+                            new PNotify({
+                                title: 'Info!',
+                                text: 'Invalid Username/email or password',
+                                type: 'info',
+                                delay: 2000
+                            });
+
+                        }
+                    },
+                    error: function () {
+
+                    }
+
+                });
+            });
+            $("#emailorusername").focus();
+            $("#emailorusername, #password").keyup(function (event) {
+
+                if ($("#emailorusername").val().length > 0 && $("#password").val().length > 0) {
+                    $("#signinbtn").attr("disabled", false);
+                    if (event.keyCode === 13) {
+                        $("#signinbtn").click();
+                    }
+                }
+                else {
+                    $("#signinbtn").attr("disabled", true);
+                }
+
+            });
+        });
+
+
+    </script>
+</body>
+</html>

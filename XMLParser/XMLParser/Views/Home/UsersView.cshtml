@@ -1,0 +1,268 @@
+﻿
+@{
+    ViewBag.Title = "AssetsView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    $(document).ready(function () {
+        loadProjects();
+        var projectId = "";
+        var userId = "";
+        $('#drpProject').multiselect({
+            enableFiltering: true,
+            buttonWidth: '257px',
+            buttonClass: 'form-control',
+            inheritClass: true,
+            nonSelectedText: 'Select Project',
+            onChange: function (element, checked) {
+                $('#drpProject').multiselect('updateButtonText', true);
+                projects = $('#drpProject option:selected');
+                if (projects != null) {
+                    if (projects[0].value != 0) {
+                        projectId = projects[0].value;
+                        $("#overlay").css("display", "block");
+                        NProgress.start();
+                        loadUsersIds(projectId);
+                    }
+
+                }
+            }
+        });
+
+
+
+        $("#divResult").hide();
+
+        $('#drpUser').multiselect({
+            enableFiltering: true,
+            buttonWidth: '257px',
+            buttonClass: 'form-control',
+            inheritClass: true,
+            nonSelectedText: 'Select Asset',
+            onChange: function (element, checked) {
+                $('#drpUser').multiselect('updateButtonText', true);
+                var users = $('#drpUser option:selected');
+                if (users != null) {
+                    if (users[0].value != 0) {
+                        userId = users[0].value;
+                        loadUserData(projectId, userId);
+                    }
+                    else {
+                        assetId = "";
+                    }
+                }
+            }
+
+        });
+    });
+
+        function loadProjects() {
+
+    $.ajax({
+        type: "POST",
+        url: '@Url.Action("GetProjectsIds","Hive")',
+        contentType: "application/json",
+        dataType: "json",
+        beforeSend: function () {
+            $("#overlay").css("display", "block");
+            NProgress.start();
+        },
+        complete: function () {
+            NProgress.done();
+            $("#overlay").css("display", "none");
+        },
+        success: function (data) {
+
+            var options = [];
+            options.push({ label: "Select Project", title: "Select Project", value: 0 });
+            for (var i = 0; i < data.aaData.length; i++) {
+                options.push({ label: data.aaData[i].Name, title: data.aaData[i].Name, value: data.aaData[i].Id });
+            }
+
+            $('#drpProject').multiselect('dataprovider', options);
+            $('#drpProject').multiselect('enable');
+
+
+        },
+        error: function (data, textStatus, jqXHR) {
+            new PNotify({
+                title: 'Error!',
+                text: "Load Project.Some error occured, please try again",
+                type: 'error',
+                delay: 2000
+            });
+        }
+    });
+}
+
+    function loadUsersIds(projectId) {
+        $.ajax({
+            type: "GET",
+            url:"@Url.Action("GetUsersIds", "Hive")",
+            data: { projectId: projectId },
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function () {
+                $("#overlay").css("display", "block");
+                NProgress.start();
+            },
+            complete: function () {
+                NProgress.done();
+                $("#overlay").css("display", "none");
+            },
+            success: function (data) {
+                if (data === "LogOut") {
+                    new PNotify({
+                        title: 'Info!',
+                        text: "Please Login to Load User's List! ",
+                        type: 'info',
+                        delay: 2000,
+                        after_close: function () {
+                            var url = "/Home/Index";
+                            window.location.href = url;
+                        }
+                    });
+                }
+                else if (data.userFoundMessage === "nouserfound") {
+                    new PNotify({
+                        title: 'Info!',
+                        text: "No User Found in this Project!",
+                        type: 'info',
+                        delay: 2000
+                    });
+                    resetUsers();
+                    $("#divResult").hide();
+                }
+                else {
+                    var options = [];
+                    options.push({ label: "Select User", title: "Select User", value: 0 });
+                    for (var i = 0; i < data.aaData.length; i++) {
+                        options.push({ label: data.aaData[i].Name, title: data.aaData[i].Name, value: data.aaData[i].Id });
+                    }
+
+                    $('#drpUser').multiselect('dataprovider', options);
+                    $('#drpUser').multiselect('enable');
+
+                }
+            },
+            error: function (data, textStatus, jqXHR) {
+                new PNotify({
+                    title: 'Error!',
+                    text: "Some error occured, please try again",
+                    type: 'error',
+                    delay:2000
+                });
+            }
+        });
+    }
+
+    function loadUserData(projectId, userId) {
+        $.ajax({
+            type: "GET",
+            url:"@Url.Action("GetUserData", "Hive")",
+            data: { projectId: projectId, UserId: userId },
+            contentType: "application/json",
+            dataType: "json",
+            beforeSend: function () {
+                $("#overlay").css("display", "block");
+                NProgress.start();
+            },
+            complete: function () {
+                NProgress.done();
+                $("#overlay").css("display", "none");
+            },
+            success: function (data) {
+                if (data === "LogOut") {
+                    $("#divResult").hide();
+                    new PNotify({
+                        title: 'Info!',
+                        text: "Please Login to view User! ",
+                        type: 'info',
+                        delay:2000,
+                        after_close: function () {
+                            var url = "/Home/Index";
+                            window.location.href = url;
+                        }
+                    });
+                }
+                else {
+                    var json = JSON.stringify(data.aaData, undefined, 2);
+                    document.getElementById('result').innerHTML = json;
+                    $("#divResult").show();
+                }
+            },
+            error: function (data, textStatus, jqXHR) {
+                new PNotify({
+                    title: 'Error!',
+                    text: "Some error occured, please try again",
+                    type: 'error',
+                    delay:2000
+                });
+            }
+        });
+    }
+    function resetUsers() {
+        $('#drpUser').empty();
+        $('#drpUser').append('<option value="" selected disabled hidden>Select User</option>');
+        $('#drpUser').multiselect('disable');
+        $('#drpUser').multiselect('updateButtonText', true);
+    }
+</script>
+<div class="right_col" role="main">
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h3>User View</h3>
+        </div>
+        <div class="x_content">
+            <form class="form-horizontal form-label-left" novalidate>
+                <div class="row ">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="drpProject">
+                                    Select Project:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <select id="drpProject" class="form-control required">
+                                        <option value="" selected disabled hidden>Select Project</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="drpUser">
+                                    Select User:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <select id="drpUser" class="form-control" disabled="disabled">
+                                        <option value="" selected disabled hidden>Select User</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+            <br />
+            <div id="divResult" class="row">
+                <div class="col-lg-9">
+                    <label for="result">Result:</label>
+                    <pre id="result"></pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

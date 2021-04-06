@@ -1,0 +1,229 @@
+﻿@{
+    var user = ViewBag.user;
+    ViewBag.Title = "Edit Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div id="overlay"></div>
+<div class="right_col" role="main">
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h3>Update Profile</h3>
+        </div>
+        <div class="x_content">
+
+            <form class="form-horizontal form-label-left" novalidate>
+                <div class="row ">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">
+                                    First Name:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="first-name" type="text" class="form-control" placeholder="First Name" value="@user.FirstName" required>
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="last-name">
+                                    Last Name:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="last-name" type="text" class="form-control" placeholder="First Name" value="@user.LastName" required>
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="username">
+                                    User Name:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="username" type="text" class="form-control" disabled placeholder="username" value="@user.username" required>
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="email">
+                                    Email:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="email" type="email" class="form-control" disabled placeholder="Email" value="@user.EmailId" required>
+                                    <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="pwd">
+                                    Password:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="pwd" type="password" class="form-control" placeholder="Password" required>
+                                    <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="cnfrmpwd">
+                                    Confirm Password:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="cnfrmpwd" type="password" class="form-control" placeholder="Confirm Password" reuired>
+                                    <span class="fa fa-repeat form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12" for="student-id">
+                                    Student Id:
+                                </label>
+                                <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="student-id" class="form-control" placeholder="Student Id" value="@user.StudentId">
+                                    <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="row" style="text-align:right">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:right">
+                        <button class="btn btn-primary" id="updateButton" type="button">Update</button>
+                        <button class="btn btn-info" id="cancelButton" type="button">Cancel</button>
+                        </div>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#cnfrmpwd, #pwd").keyup(function () {
+            if ($("#cnfrmpwd").val() === $("#pwd").val() && $("#pwd").val().length > 0) {
+                $("#cnfrmpwd").next().removeClass("fa-repeat");
+                $("#cnfrmpwd").next().addClass("fa-check");
+            }
+            else {
+                $("#cnfrmpwd").next().removeClass("fa-check");
+                $("#cnfrmpwd").next().addClass("fa-repeat");
+            }
+        });
+
+        $("#cancelButton").on('click', function () {
+            window.location.href = '/Home/MyXMLParser'
+        });
+
+        var UpdateCall = '@Url.Content("~/Home/UpdateProfile")';
+
+        $("#updateButton").on('click', function () {
+            var firstName = $("#first-name").val();
+            var lastName = $("#last-name").val();
+            var pwd = $("#pwd").val();
+            var cnfrmpwd = $("#cnfrmpwd").val();
+            var studentId = $("#student-id").val();
+            var msg = "please add :</br>";
+            if (firstName == "") {
+                msg += "=>First Name</br>";
+            }
+            if (lastName == "") {
+                msg += "=> Last Name</br>";
+            }
+            if (pwd == "") {
+                msg += "=> Password</br>";
+            }
+            if (pwd !== cnfrmpwd) {
+                msg += "=> Same Password and Confirm Password"
+            }
+            if (msg != "please add :</br>") {
+                msg = "Before Updating Profile, " + msg;
+                new PNotify({
+                    title: 'Info!',
+                    text: msg,
+                    type: 'info',
+                    delay: 3000
+                });
+            }
+            if (msg === "please add :</br>") {
+                var registerDob = {};
+                registerDob.FirstName = firstName;
+                registerDob.LastName = lastName;
+                registerDob.StudentId = studentId;
+                registerDob.Password = pwd;
+
+                $.ajax({
+                    type: "POST",
+                    url: UpdateCall,
+                    data: JSON.stringify(registerDob),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    beforeSend: function () {
+                        $("#overlay").css("display", "block");
+                        NProgress.start();
+                    },
+                    complete: function () {
+                        NProgress.done();
+                        $("#overlay").css("display", "none");
+                    },
+                    success: function (data) {
+                        if (data === true) {
+                            debugger;
+                            new PNotify({
+                                title: 'Success!',
+                                text: 'Profile is Updated!',
+                                type: 'success',
+                                delay: 2000,
+                                after_close: function (notice, timer_hide) {
+                                    debugger;
+                                    var url = '';
+                                    window.location.href = '/Home/LogOut';
+                                }
+                            });
+                        }
+                    },
+                    error: function (data, textStatus, jqXHR) {
+                        new PNotify({
+                            title: 'Error!',
+                            text: 'Some error is occured!',
+                            type: 'error',
+                            delay: 2000
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>

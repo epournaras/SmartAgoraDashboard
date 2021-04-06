@@ -1,0 +1,56 @@
+﻿<div class="modal fade" id="dgAssociateQuestion" tabindex="-1" role="dialog" data-keyboard="false" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="overflow-y: initial !important">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLongTitle" style="display:inline;font-size:12pt">Associate Question</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+
+            </div>
+            <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                Question: <select id="mainQuestionSelection" class="long" style="border: 1px solid;"></select>
+                <div class="form-horizontal" id="mbodyhoriAssociateOption">
+                </div>
+                <div style="margin-top:15px; text-align:right">
+                    <button type="button" class="btn btn-primary hide" id="btnSaveAssociateQuestion" style="margin-top:15px">Save changes</button>
+                </div>
+                <div style="margin-top:20px">
+                    <span class="hide" id="associationMsg" style="color:green;font-size:15px;font-weight:bold"><i class="glyphicon glyphicon-info-sign" style="margin-right:5px"></i>Question Association is saved!</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var mainQuestionSelectId = 0;
+    
+    function loadOptionsInModal() {
+        var mOption = $("#mbodyhoriAssociateOption");
+        mOption.html("");
+        var mainquestionDropdwn = '';
+        if (lstQuestionDataModel.length > 0) {
+            var n = 1;
+            mainquestionDropdwn = '<option>Select Question</option>';
+            for (var i = 0; i < lstQuestionDataModel.length; i++) {
+                mainquestionDropdwn = mainquestionDropdwn + '<option id="' + lstQuestionDataModel[i].id + '">' + n + ': ' + lstQuestionDataModel[i].Question + '</option>';
+                n++;
+            }
+
+        } else {
+            mainquestionDropdwn = mainquestionDropdwn + '<option> No question available.</option>';
+        }
+
+        var populateQuestion = '<div class="form-group">' + '<div class="col-md-2">' +
+            '<label> Question: </label>' +
+            '</div>' +
+            '<div class="col-md-6">' +
+            mainquestionDropdwn +
+            '</div>' +
+            '</div >';
+        $("#mainQuestionSelection").append(mainquestionDropdwn);
+    }
+</script>

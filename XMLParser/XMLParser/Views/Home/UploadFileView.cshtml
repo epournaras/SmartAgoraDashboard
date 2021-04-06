@@ -1,0 +1,391 @@
+﻿
+@{
+    ViewBag.Title = "UploadFileView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .disable-button {
+        opacity: .65;
+        cursor:not-allowed;
+        pointer-events:none;
+    }
+</style>
+<script type="text/javascript">
+    var generateHiveCall = '@Url.Content("~/api/xmlparser/GenerateHiveCall")';
+    var getProjectIds = '@Url.Action("GetProjectsIds", "Hive")';
+    var projectIds = [];
+    $(document).ready(function () {
+        
+        loadProjects();
+        $("#uploadbutton").on('click', function () {
+            $("#uploadbutton").addClass("disable-button");
+        var file = $("#assetFile")[0].files[0];
+
+            if (file === undefined) {
+                new PNotify({
+                    title: 'Info!',
+                    text: "Please select json file.",
+                    type: 'info',
+                    delay: 2000,
+
+                });
+                resetFileUplaodView();
+                return;
+            }
+
+        if (file) {
+            var fileType = file.name.substr(file.name.lastIndexOf("."))
+            if (fileType !== ".json") {
+                new PNotify({
+                    title: 'Info!',
+                    text: "Please select json file.",
+                    type: 'info',
+                    delay:2000
+
+                });
+                resetFileUplaodView();
+                return;
+            }
+
+            var mainModelFromFile = {};
+
+            var v = "";
+            // create reader
+            var reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function (e) {
+                v = JSON.parse(e.target.result);
+
+            }
+            setTimeout(function () {
+                try {
+                    var objMainModelFromFile = {};
+                    //Parsing Project Id and verifying the given
+                    //project id is belongs to the currently Logged in User.
+                    var pId = "";
+                    var msg = "";
+                    v.ProjectId !== undefined ? (pId = v.ProjectId) : msg = msg + '=>"ProjectId" key not found</br>';
+                    mainModelFromFile.ProjectId = "";
+                    if (pId !== "") {
+                        for (var i = 0; i < projectIds.length; i++) {
+                            if (projectIds[i].id === pId) {
+                                mainModelFromFile.ProjectId = pId;
+                                break;
+                            }
+                        }
+                    }
+
+
+                    //Parsing QuestionsModel
+                    var questionsModel = {};
+                    v.QuestionsModel !== undefined ? questionsModel = v.QuestionsModel : msg = msg + '=>"QuestionsModel" key not found.</br>'
+
+                    // Parsing Start and Destination Model.
+                    var startAndDestinationModel = null;
+                    questionsModel.StartAndDestinationModel !== undefined ? startAndDestinationModel = questionsModel.StartAndDestinationModel : msg = msg + '=>"StartAndDestinaitonModel" key inside QuestionsModel not found.</br>';
+                    if (startAndDestinationModel !== null) {
+                        var mode = null;
+                        (startAndDestinationModel.Mode !== undefined) ? mode = startAndDestinationModel.Mode : msg = msg + '=>"Mode" key inside StartAndDestinaitonModel not found.</br>';
+                        if (mode !== null && (mode === "Simple" || mode === "DIAS_Simple")) {
+                            (startAndDestinationModel.StartLatitude !== undefined && startAndDestinationModel.StartLatitude !== null) ? msg = msg + '=>"StartLatitude" key inside StartAndDestinaitonModel must be null.</br>' : startAndDestinationModel.StartLatitude = null;
+                            (startAndDestinationModel.StartLongitude !== undefined && startAndDestinationModel.StartLongitude !== null) ? msg = msg + '=>"StartLongitude" key inside StartAndDestinaitonModel must be null.</br>' : startAndDestinationModel.StartLongitude = null;
+                            (startAndDestinationModel.DestinationLatitude !== undefined && startAndDestinationModel.DestinationLatitude !== null) ? msg = msg + '=>"DestinationLatitude" key inside StartAndDestinaitonModel must be null.</br>' : startAndDestinationModel.DestinationLatitude = null;
+                            (startAndDestinationModel.DestinationLongitude !== undefined && startAndDestinationModel.DestinationLongitude !== null) ? msg = msg + '=>"DestinationLongitude" key inside StartAndDestinaitonModel must be null</br>' : startAndDestinationModel.DestinationLongitude = null;
+                        }
+                        else {
+                            (startAndDestinationModel.StartLatitude !== undefined) ? startAndDestinationModel.StartLatitude : msg = msg + '=>"StartLatitude" key inside StartAndDestinaitonModel not found.</br>';
+                            (startAndDestinationModel.StartLongitude !== undefined) ? startAndDestinationModel.StartLongitude : msg = msg + '=>"StartLongitude" key inside StartAndDestinaitonModel not found.</br>';
+                            (startAndDestinationModel.DestinationLatitude !== undefined) ? startAndDestinationModel.DestinationLatitude : msg = msg + '=>"DestinationLatitude" key inside StartAndDestinaitonModel not found.</br>';
+                            (startAndDestinationModel.DestinationLongitude !== undefined) ? startAndDestinationModel.DestinationLongitude : msg = msg + '=>"DestinationLongitude" key inside StartAndDestinaitonModel not found.</br>';
+                        }
+                        (startAndDestinationModel.DefaultCredit !== undefined) ? startAndDestinationModel.defaultCredits = startAndDestinationModel.DefaultCredit : msg = msg + '=>"DefaultCredit" key inside StartAndDestinaitonModel not found.</br>';
+
+                    }
+                    objMainModelFromFile.StartAndDestinationModel = startAndDestinationModel;
+
+
+                    //Parsing SamleDataModel
+                    var sampleDataModel = null;
+                    questionsModel.SampleDataModel !== undefined ? (sampleDataModel = questionsModel.SampleDataModel) : msg = msg + '=>"SampleDataModel" key inside QuestionsModel not found.</br>';
+                    if (sampleDataModel !== null) {
+                        var lstQuestionDataModelFromFile = [];
+                        for (var i = 0; i < sampleDataModel.length; i++) {
+
+                            var objQuestionFromFile = {};
+
+                            objQuestionFromFile.id = (sampleDataModel[i].id !== undefined) ? sampleDataModel[i].id : msg = msg + '=>"id" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            objQuestionFromFile.Question = (sampleDataModel[i].Question !== undefined) ? sampleDataModel[i].Question : msg = msg + '=>"Question" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            objQuestionFromFile.Type = (sampleDataModel[i].Type !== undefined) ? sampleDataModel[i].Type : msg = msg + '=>"Type" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            objQuestionFromFile.Latitude = (sampleDataModel[i].Latitude !== undefined) ? sampleDataModel[i].Latitude : msg = msg + '=>"Latitude" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            objQuestionFromFile.Longitude = (sampleDataModel[i].Longitude !== undefined) ? sampleDataModel[i].Longitude : msg = msg + '=>"Longitude" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            objQuestionFromFile.Sensor = null;
+                            var sensorValues = null;
+                            (sampleDataModel[i].Sensor !== undefined) ? sensorValues = sampleDataModel[i].Sensor : msg = msg + '=>"Sensor" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+
+                            if (sensorValues !== null) {
+                                var sensorLst = [];
+                                for (var s = 0; s < sensorValues.length; s++) {
+                                    var sensorObj = {};
+                                    sensorObj.id = null;
+                                    (sensorValues[s].id !== undefined) ? sensorObj.id = sensorValues[s].id : msg = msg + '=>"id" key inside SampleDataModel question object no. ' + i + ' sensor object no. ' + s + ' not found.</br>';
+                                    sensorObj.Name = null;
+                                    (sensorValues[s].Name !== undefined) ? sensorObj.Name = sensorValues[s].Name : msg = msg + '=>"Name" key inside SampleDataModel question object no. ' + i + ' sensor object no. ' + s + ' not found.</br>';
+                                    sensorLst.push(sensorObj);
+                                }
+                                objQuestionFromFile.Sensor = sensorLst;
+                            }
+
+                            objQuestionFromFile.Time = (sampleDataModel[i].Time !== undefined) ? sampleDataModel[i].Time : msg + '=>"Time" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            objQuestionFromFile.Frequency = (sampleDataModel[i].Frequency !== undefined) ? sampleDataModel[i].Frequency : msg + '=>"Frequency" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            if (objMainModelFromFile.StartAndDestinationModel.Mode === "Sequence")
+                                objQuestionFromFile.Sequence = (sampleDataModel[i].Sequence !== undefined) ? sampleDataModel[i].Sequence : msg + '=>"Sequence" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            else
+                                objQuestionFromFile.Sequence = "Disable";
+                            objQuestionFromFile.Visibility = (sampleDataModel[i].Visibility !== undefined) ? sampleDataModel[i].Visibility : msg + '=>"Visibility" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            objQuestionFromFile.Mandatory = (sampleDataModel[i].Mandatory !== undefined) ? sampleDataModel[i].Mandatory : msg + '=>"Mandatory" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+
+                            //Parsing Options Data
+                            var optionValues = null;
+                            objQuestionFromFile.Option = null;
+
+                            (sampleDataModel[i].Option !== undefined) ? optionValues = sampleDataModel[i].Option : msg = msg + '=>"Option" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            if (optionValues !== null) {
+                                var optionLst = [];
+                                for (var o = 0; o < optionValues.length; o++) {
+                                    var optionObj = {};
+                                    optionObj.id = null;
+                                    (optionValues[o].id !== undefined) ? optionObj.id = optionValues[o].id : msg = msg + '=>"id" key inside SampleDataModel question object no. ' + i + ' option object no. ' + o + ' not found.</br>';
+                                    optionObj.Name = null;
+                                    (optionValues[o].Name !== undefined) ? optionObj.Name = optionValues[o].Name : msg = msg + '=>"Name" key inside SampleDataModel question object no. ' + i + ' option object no. ' + o + ' not found.</br>';
+                                    optionObj.NextQuestion = null;
+                                    if (objMainModelFromFile.StartAndDestinationModel.Mode === "Sequence" || objMainModelFromFile.StartAndDestinationModel.Mode === "Simple" || objMainModelFromFile.StartAndDestinationModel.Mode === "DIAS_Simple")
+                                        optionObj.NextQuestion = "Disable";
+                                    else if (objMainModelFromFile.StartAndDestinationModel.Mode === "Decision" && objQuestionFromFile.Type === "checkbox")
+                                        optionObj.NextQuestion = null;
+                                    else
+                                        (optionValues[o].NextQuestion !== undefined) ? optionObj.NextQuestion = optionValues[o].NextQuestion : msg = msg + '=>"NextQuestion" key inside SampleDataModel question object no. ' + i + ' option object no. ' + o + ' not found.</br>';
+
+                                    optionObj.Credits = null;
+                                    if (objQuestionFromFile.Type === "checkbox")
+                                        optionObj.Credits = "Disable";
+                                    else
+                                        (optionValues[o].Credits !== undefined) ? optionObj.Credits = optionValues[o].Credits : msg = msg + '=>"Credits" key inside SampleDataModel question object no. ' + i + ' option object no. ' + o + ' not found.</br>';
+                                    optionLst.push(optionObj);
+                                }
+                                objQuestionFromFile.Option = optionLst;
+                            }
+
+                            //Parsing Combination Data
+                            objQuestionFromFile.Combination = null;
+                            if (objQuestionFromFile.Type !== undefined && objQuestionFromFile.Type === "checkbox") {
+                                var combinationValues = null;
+                                (sampleDataModel[i].Combination !== undefined) ? combinationValues = sampleDataModel[i].Combination : msg = msg + '=>"Combination" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                                if (combinationValues !== null) {
+                                    var combinationLst = [];
+                                    for (var c = 0; c < combinationValues.length; c++) {
+                                        var combinationObj = {};
+                                        combinationObj.id = null;
+                                        (combinationValues[c].id !== undefined) ? combinationObj.id = combinationValues[c].id : msg = msg + '=>"id" key inside SampleDataModel question object no. ' + i + ' combination object no. ' + c + ' not found.</br>';
+
+                                        combinationObj.NextQuestion = null;
+                                        if (objMainModelFromFile.StartAndDestinationModel.Mode === "Decision")
+                                            (combinationValues[c].NextQuestion !== undefined) ? combinationObj.NextQuestion = combinationValues[c].NextQuestion : msg = msg + '=>"NextQuestion" key inside SampleDataModel question object no. ' + i + ' combination object no. ' + c + ' not found.</br>';
+                                        combinationObj.Credits = null;
+                                        (combinationValues[c].Credits !== undefined) ? combinationObj.Credits = combinationValues[c].Credits : msg = msg + '=>"Credits" key inside SampleDataModel question object no. ' + i + ' combination object no. ' + c + ' not found.</br>';
+
+                                        combinationObj.Selected = null;
+                                        var selectedValues = null;
+                                        (combinationValues[c].Selected !== undefined) ? selectedValues = combinationValues[c].Selected : msg = msg + '=>"Selected" key inside SampleDataModel question object no. ' + i + ' combination object no. ' + c + ' not found.</br>';
+                                        if (selectedValues !== null) {
+                                            var selectedValuesLst = [];
+                                            for (var sv = 0; sv < selectedValues.length; sv++) {
+                                                var selectedValuesObj = {};
+                                                selectedValuesObj.id = null;
+                                                (selectedValues[sv].id !== undefined) ? selectedValuesObj.id = selectedValues[sv].id : msg = msg + '=>"id" key inside SampleDataModel question object no. ' + i + ' combination object no. ' + c + ' selected object no. ' + sv + ' not found.</br>';
+                                                selectedValuesObj.Order = null;
+                                                (selectedValues[sv].Order !== undefined) ? selectedValuesObj.Order = selectedValues[sv].Order : msg = msg + '=>"Order" key inside SampleDataModel question object no. ' + i + ' combination object no. ' + c + ' selected object no. ' + sv + ' not found.</br>';
+                                                selectedValuesLst.push(selectedValuesObj);
+                                            }
+                                            combinationObj.Selected = selectedValuesLst;
+                                        }
+                                        combinationLst.push(combinationObj);
+                                    }
+                                    objQuestionFromFile.Combination = combinationLst;
+
+                                }
+                            }
+
+                            objQuestionFromFile.Vicinity = (sampleDataModel[i].Vicinity !== undefined) ? sampleDataModel[i].Vicinity : msg + '=>"Vicinity" key inside SampleDataModel question object no. ' + i + ' not found.</br>';
+                            lstQuestionDataModelFromFile.push(objQuestionFromFile);
+                        }
+                        objMainModelFromFile.SampleDataModel = lstQuestionDataModelFromFile;
+                    }
+                    mainModelFromFile.QuestionsModel = objMainModelFromFile;
+                    if (msg !== "") {
+                        customException(msg);
+                    }
+                }
+                catch (err) {
+                    new PNotify({
+                        title: 'Info!',
+                        text: err,
+                        type: 'info',
+                        delay:4000
+                    });
+                    resetFileUplaodView();
+                    mainModelFromFile.ProjectId = "";
+                    return;
+                }
+
+                if (mainModelFromFile.ProjectId === "") {
+                    new PNotify({
+                        title: 'Info!',
+                        text: "Project with given Id is not exist.",
+                        type: 'info',
+                        delay:2000
+                    });
+                    resetFileUplaodView();
+                }
+                else {
+                    $.ajax({
+                        type: "POST",
+                        url: generateHiveCall,
+                        data: JSON.stringify(mainModelFromFile),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: true,
+                        beforeSend: function () {
+                            $("#overlay").css("display", "block");
+                            NProgress.start();
+                        },
+                        complete: function () {
+                            NProgress.done();
+                            $("#overlay").css("display", "none");
+                        },
+                        success: function (data, textStatus, jqXHR) {
+                            if (data === "LogOut") {
+                                new PNotify({
+                                    title: 'Info!',
+                                    text: "Please Login to Submit! ",
+                                    type: 'info',
+                                    delay: 2000,
+                                    after_close: function () {
+                                        window.location.href = '/Home/index';
+                                    }
+                                });
+                            }
+                            else {
+                                ajaxreturncode = jqXHR.status;
+                                new PNotify({
+                                    title:'Success',
+                                    text: 'Asset Created Successfully!',
+                                    type: 'success',
+                                    delay: 1500
+                                });
+
+                                resetFileUplaodView();
+                                mainModelFromFile.ProjectId = "";
+                            }
+                        },
+                        error: function (data, textStatus, jqXHR) {
+                            ajaxreturncode = jqXHR.status;
+                            new PNotify({
+                                title: 'Error!',
+                                text: textStatus,
+                                type: 'error',
+                                delay:2000
+                            });
+                            resetFileUplaodView();
+                        }
+                    });
+                }
+            }, 2000);
+        }
+    });
+    });
+    function customException(m) {
+        throw m;
+    }
+
+    function loadProjects() {
+        $.ajax({
+            type: "POST",
+            url: getProjectIds,
+            contentType: "application/json",
+            dataType: "json",
+            async: false,
+            beforeSend: function () {
+                $("#overlay").css("display", "block");
+                NProgress.start();
+            },
+            complete: function () {
+                NProgress.done();
+                $("#overlay").css("display", "none");
+            },
+            success: function (data) {
+                for (var i = 0; i < data.aaData.length; i++) {var project = {}
+                    project.id = data.aaData[i].Id;
+                    project.name = data.aaData[i].Name;
+                    projectIds.push(project);
+                }
+            },
+            error: function (data, textStatus, jqXHR) {
+            }
+        });
+    }
+
+    function resetFileUplaodView() {
+        $("#result").innerHTML = "";
+        $("#divResult").hide();
+        $("#assetFile").val("");
+        $("#uploadbutton").removeClass("disable-button");
+        $('.footerDiv').css({ "position": "fixed" });
+    }
+</script>
+<div class="right_col" role="main">
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h3>Asset File Uploading</h3>
+        </div>
+        <div class="x_content">
+            <form class="form-horizontal form-label-left" onsubmit="return false" novalidate>
+                <div class="row ">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="row">
+                            <div class="item form-group" style="margin-left:25px">
+
+                                @*<label>
+                                    Download a sample file from <a href="~/Content/sampleFiles/sample_asset.json" download="Sample Asset File.json">here.</a>
+                                </label>*@
+                                <br />
+
+                                <input type="file" id="assetFile" name="fileInput" accept=".json" style="display:inline-block">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="ln_solid"></div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="text-align:right">
+                    <button class="btn btn-primary" id="uploadbutton" >Upload</button>
+                   
+                </div>
+            </div>
+            <br />
+
+            <div id="divResult" class="row hide">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <label for="result">Preview:</label>
+                    <pre id="result"></pre>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+                             

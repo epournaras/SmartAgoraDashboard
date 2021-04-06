@@ -1,0 +1,969 @@
+
+﻿<form class="register" onsubmit="return false">
+    <h1>Dashboard</h1>
+    <div style="width: 50%;float: left;margin-left: -17px;">
+    <fieldset class="row1">
+        <legend>
+            Start and Destination Data
+        </legend>
+        <p>
+            <label>
+                Start Address:
+            </label>
+                <input id="startAddress" style="width: 389px; height: 22px; color: #505050; float: left; margin-right: 5px;" type="text" placeholder="Please enter start address here" />
+                <button class="addquestionaddress" id="btnStartAddress">Go</button>
+        </p>
+        <p>
+            <label>
+                Destination Address:
+            </label>
+                <input id="destinationAddress" style="width: 389px; height: 22px; color: #505050; float: left; margin-right: 5px;" type="text" placeholder="Please enter destination address here" />
+                <button class="addquestionaddress" id="btnDestinationAddress">Go</button>
+        </p>
+        <p>
+            <label>
+                Mode:
+            </label>
+            <select id="optMode">
+                <option value="Sequence">
+                    Sequence
+                </option>
+                <option value="Simple">
+                    Simple
+                </option>
+                <option value="Decision">
+                    Decision
+                </option>
+            </select>
+        </p>
+        <p>
+            <label>
+                Default Credit:
+            </label>
+            <input type="number" id="defaultCredit" min="1" max="1000"/>
+        </p>
+        <p hidden="hidden">
+            <label>
+                Vicinity:
+            </label>
+            <input type="text" id="vicinity" />
+        </p>
+    </fieldset>
+    <fieldset class="row1" id="questionsFieldSet">
+        <legend>
+            Question Details
+        </legend>
+        <p>
+            <label>
+                Question:
+            </label>
+            <input id="txtquestion" type="text" style="width: 389px; height: 22px; color: #505050; float: left; margin-right: 5px;" />
+        </p>
+        <p>
+            <label>
+                Question Address:
+            </label>
+            <input id="questionAddress" style="width: 389px; height: 22px; color: #505050; float: left; margin-right: 5px;" type="text" placeholder="Please enter start address here" />
+            <button class="addquestionaddress" id="btnQuestionAddress">Go</button>
+        </p>
+        <p>
+            <label>
+                Sensors:
+            </label>
+            <select id="dropdownSensors" class="js-example-basic-multiple js-states form-control" multiple="multiple">
+               
+            </select>
+        </p>
+        <p>
+            <label>
+                Question Type:
+            </label>
+            <select id="optType">
+                <option value="radio">
+                    Radio
+                </option>
+                <option value="checkbox">
+                    Checkbox
+                </option>
+            </select>
+        </p>
+        <p>
+            <label>
+                Time (s):
+            </label>
+            <input type="text" class="short" id="txtTime" />
+            <label>
+                Frequency:
+            </label>
+            <select id="txtFrequency">
+                <option value="High">
+                    High
+                </option>
+                <option value="Medium">
+                    Medium
+                </option>
+                <option value="Low">
+                    Low
+                </option>
+            </select>
+            
+        </p>
+        <p>
+            <label id="lblSequence">
+                Sequence (Enter sequence in number):
+            </label>
+            <input type="text" id="txtSequence" />
+        </p>
+        <p>
+            <label style="margin-left: 50px;">
+                Visibility:  
+            </label>
+            <input type="checkbox" id="txtVisibility" checked="checked" />
+            <label style="margin-left: 50px;">
+                Mandatory: 
+            </label>
+            <input type="checkbox" id="txtMandatory" /> 
+        </p>
+        <p>
+            <label id="optionsLbl">
+                Options:
+            </label>
+            <div id='TextBoxesGroup'>
+                <div id="TextBoxDiv1">
+                    <input type="text" id="optQuestion1" placeholder="Yes" />
+                </div>
+            </div>
+            <div hidden="hidden" id='showCombinaions'>
+                
+            </div>
+            <div hidden="hidden" id='TextBoxesGroupCombinaion'>
+                <div id="TextBoxDivCombinaion1">
+                </div>
+            </div>
+            @*<button id="addButton" class="classAddOption">+</button>*@
+           
+        </p>
+        <p>
+            <div id="addquestiondiv" style="text-align: center;">
+                <button class="addquestion" id="btnaddquestion" onclick="addQuestionInList()">Add Question</button>
+                </div>
+        </p>
+
+ 
+    </fieldset>
+    </div>
+    <div style="width: 50%;float: right;height: 48%;margin-right: 9px;">
+        <div style="margin-top: 25px;">
+            <h3> Please select checkpoint from map</h3>
+
+            <label>
+                Start:
+            </label>
+            <input type="radio" style="margin-top: 3px;" id="txtstartAddressPointer" />
+
+
+            <label>
+                Destination:
+            </label>
+            <input type="radio" style="margin-top: 3px;" id="txtdestAddressPointer" />
+
+
+            <label>
+                Question:
+            </label>
+            <input type="radio" style="margin-top: 3px;" id="txtquestionAddressPointer" />
+
+        </div>
+        <br />
+        <div id="googleMap" style="width: 96%;height: 311px;float: left;margin-top: 15px;position: relative;overflow: hidden;"></div>
+        <script>
+            var startAvailable = false;
+            var destAvailable = false;
+            var desiredAvailable = false;
+            var startLatitude = null;
+            var startLongitude = null;
+            var destinationLatitude = null;
+            var destinationLongitude = null;
+            var questionLatitude = null;
+            var questionLongitude = null;
+            var startLocationMarker = null;
+            var destinationLocationMarker = null;
+            var desiredLocationMarker = null;
+            var map;
+
+            function showResult(addresslat, addresslng) {
+                if (startAvailable === true) {
+                    startLatitude = addresslat;
+                    startLongitude = addresslng;
+                    if (startLocationMarker === null) {
+                        startLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(startLatitude, startLongitude),
+                            label: { text: 'A', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                        map.setZoom(14);
+                        map.panTo(startLocationMarker.position);
+                    } else {
+                        startLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                startLatitude,
+                                startLongitude
+                            )
+                        );
+                    }
+                    startAvailable = false;
+                }
+                if (destAvailable === true) {
+                    destinationLatitude = addresslat;
+                    destinationLongitude = addresslng;
+                    if (destinationLocationMarker === null) {
+                        destinationLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                            label: { text: 'B', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        destinationLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                destinationLatitude,
+                                destinationLongitude
+                            )
+                        );
+                    }
+                    destAvailable = false;
+                }
+                if (desiredAvailable === true) {
+                    questionLatitude = addresslat;
+                    questionLongitude = addresslng;
+                    if (desiredLocationMarker === null) {
+                        desiredLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                            label: { text: 'Q', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        desiredLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                questionLatitude,
+                                questionLongitude
+                            )
+                        );
+                    }
+                    desiredAvailable = false;
+                }
+            }
+            function showResultbtn(result) {
+                var addresslat = result.geometry.location.lat();
+                var addresslng = result.geometry.location.lng();
+                if (startAvailable === true) {
+                    startLatitude = addresslat;
+                    startLongitude = addresslng;
+                    if (startLocationMarker === null) {
+                        startLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(startLatitude, startLongitude),
+                            label: { text: 'Start', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                        map.setZoom(14);
+                        map.panTo(startLocationMarker.position);
+                    } else {
+                        startLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                startLatitude,
+                                startLongitude
+                            )
+                        );
+                    }
+                    startAvailable = false;
+                }
+                if (destAvailable === true) {
+                    destinationLatitude = addresslat;
+                    destinationLongitude = addresslng;
+                    if (destinationLocationMarker === null) {
+                        destinationLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                            label: { text: 'Destination', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        destinationLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                destinationLatitude,
+                                destinationLongitude
+                            )
+                        );
+                    }
+                    destAvailable = false;
+                }
+                if (desiredAvailable === true) {
+                    questionLatitude = addresslat;
+                    questionLongitude = addresslng;
+                    if (desiredLocationMarker === null) {
+                        desiredLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                            label: { text: 'Desired', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        desiredLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                questionLatitude,
+                                questionLongitude
+                            )
+                        );
+                    }
+                    desiredAvailable = false;
+                }
+            }
+
+            function getLatitudeLongitude(callback, address) {
+                // If address is not supplied, use default value 'Ferrol, Galicia, Spain'
+                address = address || 'Ferrol, Galicia, Spain';
+                // Initialize the Geocoder
+                geocoder = new google.maps.Geocoder();
+                if (geocoder) {
+                    geocoder.geocode({
+                        'address': address
+                    }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            callback(results[0]);
+                        } else {
+                            //alert('Please enter a correct address: ' + status);
+                            swal({
+                                title: 'Info!',
+                                text: "Please enter a correct address: " + status,
+                                type: 'info',
+                                confirmButtonText: 'Ok'
+                            });
+                        }
+                    });
+                }
+            }
+
+
+            document.getElementById("btnStartAddress").addEventListener("click", function () {
+                var startAddress = document.getElementById('startAddress').value;
+                startAvailable = true;
+                getLatitudeLongitude(showResultbtn, startAddress)
+            });
+
+            document.getElementById("btnDestinationAddress").addEventListener("click", function () {
+                var DestinationAddress = document.getElementById('destinationAddress').value;
+                destAvailable = true;
+                getLatitudeLongitude(showResultbtn, DestinationAddress)
+            });
+
+            document.getElementById("btnQuestionAddress").addEventListener("click", function () {
+                var QuestionAddress = document.getElementById('questionAddress').value;
+                desiredAvailable = true;
+                getLatitudeLongitude(showResultbtn, QuestionAddress)
+            });
+
+            $(document).on('click', '#txtstartAddressPointer', function () {
+                if (this.checked) {
+                    if ($('#txtdestAddressPointer').is(":checked") === true || $('#txtquestionAddressPointer').is(":checked") === true) {
+                        $("#txtdestAddressPointer").prop('checked', false);
+                        $("#txtquestionAddressPointer").prop('checked', false);
+                    }
+                }
+            });
+            $(document).on('click', '#txtdestAddressPointer', function () {
+                if (this.checked) {
+                    if ($('#txtstartAddressPointer').is(":checked") === true || $('#txtquestionAddressPointer').is(":checked") === true) {
+                        $("#txtstartAddressPointer").prop('checked', false);
+                        $("#txtquestionAddressPointer").prop('checked', false);
+                    }
+                }
+            });
+            $(document).on('click', '#txtquestionAddressPointer', function () {
+                if (this.checked) {
+                    if ($('#txtdestAddressPointer').is(":checked") === true || $('#txtstartAddressPointer').is(":checked") === true) {
+                        $("#txtdestAddressPointer").prop('checked', false);
+                        $("#txtstartAddressPointer").prop('checked', false);
+                    }
+                }
+            });
+
+
+            function myMap() {
+                var directions = {};
+                var directionsDisplay = new google.maps.DirectionsRenderer();
+                var directionsService = new google.maps.DirectionsService();
+                var mapProp = {
+                    center: new google.maps.LatLng(47.3770065, 8.54391099999998),
+                    zoom: 10,
+                };
+                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(47.3770065, 8.54391099999998),
+                    map: map
+                });
+                var startLatLng;
+                var destinationLatLng;
+                var desiredLatLng;
+                var requiredAddress = null;
+
+                google.maps.event.addListener(map, "click", function (e) {
+                    var selectedLatLng = e.latLng;
+                    geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({
+                        'latLng': e.latLng
+                    }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                if ($('#txtstartAddressPointer').is(":checked") === true) {
+                                    document.getElementById('startAddress').value = results[0].formatted_address;
+                                    startAvailable = true;
+                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                }
+                                if ($('#txtdestAddressPointer').is(":checked") === true) {
+                                    document.getElementById('destinationAddress').value = results[0].formatted_address;
+                                    destAvailable = true;
+                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                }
+                                if ($('#txtquestionAddressPointer').is(":checked") === true) {
+                                    document.getElementById('questionAddress').value = results[0].formatted_address;
+                                    desiredAvailable = true;
+                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                }
+                                if ($('#txtstartAddressPointer').is(":checked") === false && $('#txtdestAddressPointer').is(":checked") === false && $('#txtquestionAddressPointer').is(":checked") === false) {
+                                    alert("Please check one of the location above!");
+                                    return;
+                                }
+                            }
+                        }
+
+                    });
+                });
+
+                google.maps.event.addDomListener(window, 'load', initialize);
+                function initialize() {
+
+                var startaddressinput = document.getElementById('startAddress');
+                var startaddressautocomplete = new google.maps.places.Autocomplete(startaddressinput);
+
+                var destinationaddressinput = document.getElementById('destinationAddress');
+                var destinationaddressautocomplete = new google.maps.places.Autocomplete(destinationaddressinput);
+
+                var questionaddressinput = document.getElementById('questionAddress');
+                var questionaddressautocomplete = new google.maps.places.Autocomplete(questionaddressinput);
+            }
+            }
+            
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsdm2NgCWmLb7rWaBjxkF0co3N3Hhehbg&v=3.exp&sensor=false&libraries=places&callback=myMap"></script>
+        <div><button class="button" id="btnHivesubmit" onclick="submitForHive()">HiveSubmit &raquo;</button></div>
+        <div><button class="button" id="btnsubmit" onclick="submitFormevent()">Submit &raquo;</button></div>
+        <div><button class="button" id="btnDownloadXMLFile" hidden="hidden" onclick="downloadFile()">Download JSON</button></div>
+        <div><button class="button" id="btnreset" onClick="refreshPage()">Reset &raquo;</button></div>
+        
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 scrollablearea">
+        <div class="section-panel-grid">
+            <table id="tbQuestions" class="display" cellspacing="0" width="100%" role="grid">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Question</th>
+                        <th>Sensors</th>
+                        <th>Type</th>
+                        <th>Sequence</th>
+                        <th>Options</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+            </table>
+            </div>
+        </div>
+</form>
+=======
+﻿<form class="register" onsubmit="return false">
+    <h1>Dashboard</h1>
+    <div style="width: 50%;float: left;margin-left: -17px;">
+        <fieldset class="row1">
+            <legend>
+                Project and Task Data
+            </legend>
+            <p>
+                <label>
+                    Select Project
+                </label>
+                <select id="drpProject">
+                    <option value="" selected disabled hidden>Select Project</option>
+                </select>
+            </p>
+            @*<p>
+                <label>
+                    Select Task
+                </label>
+                <select id="drpTask">
+                    <option value="" selected disabled hidden>Select Task</option>
+                </select>
+            </p>*@
+        </fieldset>
+        <fieldset class="row1">
+            <legend>
+                Start and Destination Data
+            </legend>
+            <p>
+                <label>
+                    Start Address:
+                </label>
+                <input id="startAddress" style="width: 389px; height: 30px; color: #505050; float: left; margin-right: 5px;" type="text" placeholder="Please enter start address here" />
+                <button class="addquestionaddress" id="btnStartAddress">Go</button>
+            </p>
+            <p>
+                <label>
+                    Destination Address:
+                </label>
+                <input id="destinationAddress" style="width: 389px; height: 22px; color: #505050; float: left; margin-right: 5px;" type="text" placeholder="Please enter destination address here" />
+                <button class="addquestionaddress" id="btnDestinationAddress">Go</button>
+            </p>
+            <p>
+                <label>
+                    Mode:
+                </label>
+                <select id="optMode">
+                    <option value="Sequence">
+                        Sequence
+                    </option>
+                    <option value="Simple">
+                        Simple
+                    </option>
+                    <option value="Decision">
+                        Decision
+                    </option>
+                </select>
+            </p>
+            <p>
+                <label>
+                    Default Credit:
+                </label>
+                <input type="number" id="defaultCredit" min="1" max="1000" />
+            </p>
+            <p hidden="hidden">
+                <label>
+                    Vicinity:
+                </label>
+                <input type="text" id="vicinity" />
+            </p>
+        </fieldset>
+        <fieldset class="row1" id="questionsFieldSet">
+            <legend>
+                Question Details
+            </legend>
+            <p>
+                <label>
+                    Question:
+                </label>
+                <input id="txtquestion" type="text" style="width: 389px; height: 22px; color: #505050; float: left; margin-right: 5px;" />
+            </p>
+            <p>
+                <label>
+                    Question Address:
+                </label>
+                <input id="questionAddress" style="width: 389px; height: 22px; color: #505050; float: left; margin-right: 5px;" type="text" placeholder="Please enter start address here" />
+                <button class="addquestionaddress" id="btnQuestionAddress">Go</button>
+            </p>
+            <p style="font-size:12px;">
+                <label>
+                    Sensors:
+                </label>
+                <select id="dropdownSensors" class="js-example-basic-multiple js-states form-control" multiple="multiple"></select>
+            </p>
+            <p>
+                <label>
+                    Question Type:
+                </label>
+                <select id="optType">
+                    <option value="radio">
+                        Radio
+                    </option>
+                    <option value="checkbox">
+                        Checkbox
+                    </option>
+                </select>
+            </p>
+            <p>
+                <label>
+                    Time (s):
+                </label>
+                <input type="text" class="short" id="txtTime" />
+                <label>
+                    Frequency:
+                </label>
+                <select id="txtFrequency">
+                    <option value="High">
+                        High
+                    </option>
+                    <option value="Medium">
+                        Medium
+                    </option>
+                    <option value="Low">
+                        Low
+                    </option>
+                </select>
+
+            </p>
+            <p>
+                <label id="lblSequence">
+                    Sequence (Enter sequence in number):
+                </label>
+                <input type="text" id="txtSequence" />
+            </p>
+            <p>
+                <label style="margin-left: 50px;">
+                    Visibility:
+                </label>
+                <input type="checkbox" id="txtVisibility" checked="checked" />
+                <label style="margin-left: 50px;">
+                    Mandatory:
+                </label>
+                <input type="checkbox" id="txtMandatory" />
+            </p>
+            <p>
+                <label id="optionsLbl">
+                    Options:
+                </label>
+                <div id='TextBoxesGroup'>
+                    <div id="TextBoxDiv1">
+                        <input type="text" id="optQuestion1" placeholder="Yes" />
+                    </div>
+                </div>
+                <div hidden="hidden" id='TextBoxesGroupCombinaion'>
+                    <div id="TextBoxDivCombinaion1">
+                    </div>
+                </div>
+                @*<button id="addButton" class="classAddOption">+</button>*@
+
+            </p>
+            <p>
+                <div id="addquestiondiv" style="text-align: center;">
+                    <button class="addquestion" id="btnaddquestion" onclick="addQuestionInList()">Add Question</button>
+                </div>
+            </p>
+
+        </fieldset>
+    </div>
+    <div style="width: 50%;float: right;height: 48%;margin-right: 9px;">
+        <div style="margin-top: 25px;">
+            <h3> Please select checkpoint from map</h3>
+            <label>
+                Start:
+            </label>
+            <input type="radio" style="margin-top: 3px;" id="txtstartAddressPointer" />
+
+            <label>
+                Destination:
+            </label>
+            <input type="radio" style="margin-top: 3px;" id="txtdestAddressPointer" />
+
+            <label>
+                Question:
+            </label>
+            <input type="radio" style="margin-top: 3px;" id="txtquestionAddressPointer" />
+        </div>
+        <br />
+        <div id="googleMap" style="width: 96%;height: 311px;float: left;margin-top: 15px;position: relative;overflow: hidden;"></div>
+        <script>
+            var startAvailable = false;
+            var destAvailable = false;
+            var desiredAvailable = false;
+            var startLatitude = null;
+            var startLongitude = null;
+            var destinationLatitude = null;
+            var destinationLongitude = null;
+            var questionLatitude = null;
+            var questionLongitude = null;
+            var startLocationMarker = null;
+            var destinationLocationMarker = null;
+            var desiredLocationMarker = null;
+            var map;
+
+            function showResult(addresslat, addresslng) {
+                if (startAvailable === true) {
+                    startLatitude = addresslat;
+                    startLongitude = addresslng;
+                    if (startLocationMarker === null) {
+                        startLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(startLatitude, startLongitude),
+                            label: { text: 'A', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                        map.setZoom(14);
+                        map.panTo(startLocationMarker.position);
+                    } else {
+                        startLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                startLatitude,
+                                startLongitude
+                            )
+                        );
+                    }
+                    startAvailable = false;
+                }
+                if (destAvailable === true) {
+                    destinationLatitude = addresslat;
+                    destinationLongitude = addresslng;
+                    if (destinationLocationMarker === null) {
+                        destinationLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                            label: { text: 'B', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        destinationLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                destinationLatitude,
+                                destinationLongitude
+                            )
+                        );
+                    }
+                    destAvailable = false;
+                }
+                if (desiredAvailable === true) {
+                    questionLatitude = addresslat;
+                    questionLongitude = addresslng;
+                    if (desiredLocationMarker === null) {
+                        desiredLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                            label: { text: 'Q', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        desiredLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                questionLatitude,
+                                questionLongitude
+                            )
+                        );
+                    }
+                    desiredAvailable = false;
+                }
+            }
+            function showResultbtn(result) {
+                var addresslat = result.geometry.location.lat();
+                var addresslng = result.geometry.location.lng();
+                if (startAvailable === true) {
+                    startLatitude = addresslat;
+                    startLongitude = addresslng;
+                    if (startLocationMarker === null) {
+                        startLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(startLatitude, startLongitude),
+                            label: { text: 'Start', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                        map.setZoom(14);
+                        map.panTo(startLocationMarker.position);
+                    } else {
+                        startLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                startLatitude,
+                                startLongitude
+                            )
+                        );
+                    }
+                    startAvailable = false;
+                }
+                if (destAvailable === true) {
+                    destinationLatitude = addresslat;
+                    destinationLongitude = addresslng;
+                    if (destinationLocationMarker === null) {
+                        destinationLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(destinationLatitude, destinationLongitude),
+                            label: { text: 'Destination', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        destinationLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                destinationLatitude,
+                                destinationLongitude
+                            )
+                        );
+                    }
+                    destAvailable = false;
+                }
+                if (desiredAvailable === true) {
+                    questionLatitude = addresslat;
+                    questionLongitude = addresslng;
+                    if (desiredLocationMarker === null) {
+                        desiredLocationMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(questionLatitude, questionLongitude),
+                            label: { text: 'Desired', color: "blue", fontSize: "15px", fontWeight: "bold" },
+                            map: map
+                        });
+                    } else {
+                        desiredLocationMarker.setPosition(
+                            new google.maps.LatLng(
+                                questionLatitude,
+                                questionLongitude
+                            )
+                        );
+                    }
+                    desiredAvailable = false;
+                }
+            }
+
+            function getLatitudeLongitude(callback, address) {
+                // If address is not supplied, use default value 'Ferrol, Galicia, Spain'
+                address = address || 'Ferrol, Galicia, Spain';
+                // Initialize the Geocoder
+                geocoder = new google.maps.Geocoder();
+                if (geocoder) {
+                    geocoder.geocode({
+                        'address': address
+                    }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            callback(results[0]);
+                        } else {
+                            //alert('Please enter a correct address: ' + status);
+                            swal({
+                                title: 'Info!',
+                                text: "Please enter a correct address: " + status,
+                                type: 'info',
+                                confirmButtonText: 'Ok'
+                            });
+                        }
+                    });
+                }
+            }
+
+
+            document.getElementById("btnStartAddress").addEventListener("click", function () {
+                var startAddress = document.getElementById('startAddress').value;
+                startAvailable = true;
+                getLatitudeLongitude(showResultbtn, startAddress)
+            });
+
+            document.getElementById("btnDestinationAddress").addEventListener("click", function () {
+                var DestinationAddress = document.getElementById('destinationAddress').value;
+                destAvailable = true;
+                getLatitudeLongitude(showResultbtn, DestinationAddress)
+            });
+
+            document.getElementById("btnQuestionAddress").addEventListener("click", function () {
+                var QuestionAddress = document.getElementById('questionAddress').value;
+                desiredAvailable = true;
+                getLatitudeLongitude(showResultbtn, QuestionAddress)
+            });
+
+            $(document).on('click', '#txtstartAddressPointer', function () {
+                if (this.checked) {
+                    if ($('#txtdestAddressPointer').is(":checked") === true || $('#txtquestionAddressPointer').is(":checked") === true) {
+                        $("#txtdestAddressPointer").prop('checked', false);
+                        $("#txtquestionAddressPointer").prop('checked', false);
+                    }
+                }
+            });
+            $(document).on('click', '#txtdestAddressPointer', function () {
+                if (this.checked) {
+                    if ($('#txtstartAddressPointer').is(":checked") === true || $('#txtquestionAddressPointer').is(":checked") === true) {
+                        $("#txtstartAddressPointer").prop('checked', false);
+                        $("#txtquestionAddressPointer").prop('checked', false);
+                    }
+                }
+            });
+            $(document).on('click', '#txtquestionAddressPointer', function () {
+                if (this.checked) {
+                    if ($('#txtdestAddressPointer').is(":checked") === true || $('#txtstartAddressPointer').is(":checked") === true) {
+                        $("#txtdestAddressPointer").prop('checked', false);
+                        $("#txtstartAddressPointer").prop('checked', false);
+                    }
+                }
+            });
+
+
+            function myMap() {
+                var directions = {};
+                var directionsDisplay = new google.maps.DirectionsRenderer();
+                var directionsService = new google.maps.DirectionsService();
+                var mapProp = {
+                    center: new google.maps.LatLng(47.3770065, 8.54391099999998),
+                    zoom: 10,
+                };
+                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(47.3770065, 8.54391099999998),
+                    map: map
+                });
+                var startLatLng;
+                var destinationLatLng;
+                var desiredLatLng;
+                var requiredAddress = null;
+
+                google.maps.event.addListener(map, "click", function (e) {
+                    var selectedLatLng = e.latLng;
+                    geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({
+                        'latLng': e.latLng
+                    }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                if ($('#txtstartAddressPointer').is(":checked") === true) {
+                                    document.getElementById('startAddress').value = results[0].formatted_address;
+                                    startAvailable = true;
+                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                }
+                                if ($('#txtdestAddressPointer').is(":checked") === true) {
+                                    document.getElementById('destinationAddress').value = results[0].formatted_address;
+                                    destAvailable = true;
+                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                }
+                                if ($('#txtquestionAddressPointer').is(":checked") === true) {
+                                    document.getElementById('questionAddress').value = results[0].formatted_address;
+                                    desiredAvailable = true;
+                                    showResult(selectedLatLng.lat(), selectedLatLng.lng());
+                                }
+                                if ($('#txtstartAddressPointer').is(":checked") === false && $('#txtdestAddressPointer').is(":checked") === false && $('#txtquestionAddressPointer').is(":checked") === false) {
+                                    alert("Please check one of the location above!");
+                                    return;
+                                }
+                            }
+                        }
+
+                    });
+                });
+
+                google.maps.event.addDomListener(window, 'load', initialize);
+                function initialize() {
+
+                    var startaddressinput = document.getElementById('startAddress');
+                    var startaddressautocomplete = new google.maps.places.Autocomplete(startaddressinput);
+
+                    var destinationaddressinput = document.getElementById('destinationAddress');
+                    var destinationaddressautocomplete = new google.maps.places.Autocomplete(destinationaddressinput);
+
+                    var questionaddressinput = document.getElementById('questionAddress');
+                    var questionaddressautocomplete = new google.maps.places.Autocomplete(questionaddressinput);
+                }
+            }
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsdm2NgCWmLb7rWaBjxkF0co3N3Hhehbg&v=3.exp&sensor=false&libraries=places&callback=myMap"></script>
+
+        <div><button class="button" id="btnHivesubmit" onclick="submitForHive()">HiveSubmit &raquo;</button></div>
+        <div><button class="button" id="btnsubmit" onclick="submitFormevent()">Submit &raquo;</button></div>
+        <div><button class="button" id="btnDownloadXMLFile" hidden="hidden" onclick="downloadFile()">Download JSON</button></div>
+        <div><button class="button" id="btnreset" onClick="refreshPage()">Reset &raquo;</button></div>
+
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 scrollablearea">
+        <div class="section-panel-grid">
+            <table id="tbQuestions" class="display" cellspacing="0" width="100%" role="grid" style="font-size:12px;">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Question</th>
+                        <th>Sensors</th>
+                        <th>Type</th>
+                        <th>Sequence</th>
+                        <th>Options</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</form>
