@@ -1,0 +1,40 @@
+[2018-02-05 01:30:23,805][INFO ][bootstrap                ] running graceful exit on windows
+[2018-02-05 01:30:23,825][INFO ][node                     ] [Amber Hunt] stopping ...
+[2018-02-05 01:30:23,946][INFO ][node                     ] [Amber Hunt] stopped
+[2018-02-05 01:30:23,946][INFO ][node                     ] [Amber Hunt] closing ...
+[2018-02-05 01:30:23,953][INFO ][node                     ] [Amber Hunt] closed
+[2020-12-30 17:59:53,924][INFO ][node                     ] [Simon Williams] version[2.4.3], pid[5294], build[d38a34e/2016-12-07T16:28:56Z]
+[2020-12-30 17:59:53,936][INFO ][node                     ] [Simon Williams] initializing ...
+[2020-12-30 17:59:54,593][INFO ][plugins                  ] [Simon Williams] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2020-12-30 17:59:54,620][INFO ][env                      ] [Simon Williams] using [1] data paths, mounts [[/ (/dev/sda3)]], net usable_space [43.2gb], net total_space [58.3gb], spins? [possibly], types [ext4]
+[2020-12-30 17:59:54,626][INFO ][env                      ] [Simon Williams] heap size [1015.6mb], compressed ordinary object pointers [true]
+[2020-12-30 17:59:57,380][INFO ][node                     ] [Simon Williams] initialized
+[2020-12-30 17:59:57,385][INFO ][node                     ] [Simon Williams] starting ...
+[2020-12-30 17:59:57,471][INFO ][transport                ] [Simon Williams] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2020-12-30 17:59:57,483][INFO ][discovery                ] [Simon Williams] elasticsearch/LO0XwVp7SaazEaJXXUMlTA
+[2020-12-30 18:00:00,562][INFO ][cluster.service          ] [Simon Williams] new_master {Simon Williams}{LO0XwVp7SaazEaJXXUMlTA}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2020-12-30 18:00:00,644][INFO ][http                     ] [Simon Williams] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2020-12-30 18:00:00,645][INFO ][node                     ] [Simon Williams] started
+[2020-12-30 18:00:00,761][INFO ][gateway                  ] [Simon Williams] recovered [1] indices into cluster_state
+[2020-12-30 18:00:01,459][INFO ][cluster.routing.allocation] [Simon Williams] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][4]] ...]).
+[2020-12-30 18:01:21,846][INFO ][cluster.metadata         ] [Simon Williams] [hive] update_mapping [assets]
+[2020-12-30 18:01:52,630][INFO ][node                     ] [Simon Williams] stopping ...
+[2020-12-30 18:01:52,787][INFO ][node                     ] [Simon Williams] stopped
+[2020-12-30 18:01:52,788][INFO ][node                     ] [Simon Williams] closing ...
+[2020-12-30 18:01:52,795][INFO ][node                     ] [Simon Williams] closed
+[2020-12-30 18:04:53,120][INFO ][node                     ] [Tantra] version[2.4.3], pid[1737], build[d38a34e/2016-12-07T16:28:56Z]
+[2020-12-30 18:04:53,122][INFO ][node                     ] [Tantra] initializing ...
+[2020-12-30 18:04:53,916][INFO ][plugins                  ] [Tantra] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2020-12-30 18:04:53,962][INFO ][env                      ] [Tantra] using [1] data paths, mounts [[/ (/dev/sda3)]], net usable_space [43.2gb], net total_space [58.3gb], spins? [possibly], types [ext4]
+[2020-12-30 18:04:53,968][INFO ][env                      ] [Tantra] heap size [1015.6mb], compressed ordinary object pointers [true]
+[2020-12-30 18:04:57,394][INFO ][node                     ] [Tantra] initialized
+[2020-12-30 18:04:57,395][INFO ][node                     ] [Tantra] starting ...
+[2020-12-30 18:04:57,550][INFO ][transport                ] [Tantra] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2020-12-30 18:04:57,556][INFO ][discovery                ] [Tantra] elasticsearch/LyxJMOOMSyGh6guxOrUNJQ
+[2020-12-30 18:05:00,653][INFO ][cluster.service          ] [Tantra] new_master {Tantra}{LyxJMOOMSyGh6guxOrUNJQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2020-12-30 18:05:00,694][INFO ][http                     ] [Tantra] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2020-12-30 18:05:00,695][INFO ][node                     ] [Tantra] started
+[2020-12-30 18:05:00,809][INFO ][gateway                  ] [Tantra] recovered [1] indices into cluster_state
+[2020-12-30 18:05:01,648][INFO ][cluster.routing.allocation] [Tantra] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][3], [hive][3]] ...]).
+[2020-12-30 18:08:55,911][INFO ][cluster.metadata         ] [Tantra] [hive] create_mapping [users]
+[2020-12-30 18:08:59,922][INFO ][cluster.metadata         ] [Tantra] [hive] update_mapping [assignments]

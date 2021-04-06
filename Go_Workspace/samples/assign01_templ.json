@@ -1,0 +1,46 @@
+{
+    "Id": "basicHIVEbasic-recordHIVEAVhAAu9p2aOCdxPE-q4VHIVEalexey",
+    "User": "alexey",
+    "Project": "basic",
+    "Task": "basic-record",
+    "Asset": {
+        "Id": "AVhAAu9p2aOCdxPE-q4V",
+        "Project": "basic",
+        "Url": "https://smart-agora.org",
+        "Name": "Data Set 1",
+        "Metadata": {
+            "record": {
+                "end": "2016-06-01T12:10:00Z",
+                "sensors": [
+                    "accelerometer"
+                ],
+                "start": "2016-06-01T12:00:00Z",
+                "step": 1000
+            }
+        },
+        "SubmittedData": {
+            "record": null
+        },
+        "Favorited": false,
+        "Verified": false,
+        "Counts": {
+            "Assignments": 1,
+            "Favorites": 0,
+            "finished": 0,
+            "skipped": 0,
+            "unfinished": 1
+        }
+    },
+    "State": "finished",
+    "SubmittedData": {
+        "record": {
+            "end": "2016-06-01T12:10:00Z",
+            "sensors": ["accelerometer"],
+            "start": "2016-06-01T12:00:00Z",
+            "step": 1000,
+            "accelerometer": [
+                0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0
+            ]
+        }
+    }   
+}

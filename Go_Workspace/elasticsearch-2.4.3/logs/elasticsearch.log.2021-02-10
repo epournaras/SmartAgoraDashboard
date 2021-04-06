@@ -1,0 +1,21 @@
+[2021-02-10 15:17:10,188][INFO ][node                     ] [Sasquatch] version[2.4.3], pid[1815], build[d38a34e/2016-12-07T16:28:56Z]
+[2021-02-10 15:17:10,193][INFO ][node                     ] [Sasquatch] initializing ...
+[2021-02-10 15:17:11,211][INFO ][plugins                  ] [Sasquatch] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2021-02-10 15:17:11,271][INFO ][env                      ] [Sasquatch] using [1] data paths, mounts [[/ (/dev/sda3)]], net usable_space [43.5gb], net total_space [58.3gb], spins? [possibly], types [ext4]
+[2021-02-10 15:17:11,272][INFO ][env                      ] [Sasquatch] heap size [1015.6mb], compressed ordinary object pointers [true]
+[2021-02-10 15:17:15,948][INFO ][node                     ] [Sasquatch] initialized
+[2021-02-10 15:17:15,955][INFO ][node                     ] [Sasquatch] starting ...
+[2021-02-10 15:17:16,177][INFO ][transport                ] [Sasquatch] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2021-02-10 15:17:16,185][INFO ][discovery                ] [Sasquatch] elasticsearch/FwX4FGTJSuG1-TW2z5SQAg
+[2021-02-10 15:17:19,260][INFO ][cluster.service          ] [Sasquatch] new_master {Sasquatch}{FwX4FGTJSuG1-TW2z5SQAg}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2021-02-10 15:17:19,351][INFO ][http                     ] [Sasquatch] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2021-02-10 15:17:19,395][INFO ][node                     ] [Sasquatch] started
+[2021-02-10 15:17:19,602][INFO ][gateway                  ] [Sasquatch] recovered [1] indices into cluster_state
+[2021-02-10 15:17:21,612][INFO ][cluster.routing.allocation] [Sasquatch] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][0], [hive][0]] ...]).
+[2021-02-10 15:31:48,822][INFO ][cluster.metadata         ] [Sasquatch] [hive] update_mapping [assignments]
+[2021-02-10 15:31:49,085][INFO ][cluster.metadata         ] [Sasquatch] [hive] update_mapping [users]
+[2021-02-10 15:31:49,274][INFO ][cluster.metadata         ] [Sasquatch] [hive] update_mapping [tasks]
+[2021-02-10 15:34:59,904][INFO ][node                     ] [Sasquatch] stopping ...
+[2021-02-10 15:35:02,037][INFO ][node                     ] [Sasquatch] stopped
+[2021-02-10 15:35:02,037][INFO ][node                     ] [Sasquatch] closing ...
+[2021-02-10 15:35:02,192][INFO ][node                     ] [Sasquatch] closed

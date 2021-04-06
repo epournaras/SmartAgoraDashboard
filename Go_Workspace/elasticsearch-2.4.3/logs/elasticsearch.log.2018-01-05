@@ -1,0 +1,20 @@
+[2018-01-05 10:26:00,591][INFO ][node                     ] [Administrator] version[2.4.3], pid[8292], build[d38a34e/2016-12-07T16:28:56Z]
+[2018-01-05 10:26:00,593][INFO ][node                     ] [Administrator] initializing ...
+[2018-01-05 10:26:01,265][INFO ][plugins                  ] [Administrator] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-01-05 10:26:01,291][INFO ][env                      ] [Administrator] using [1] data paths, mounts [[(C:)]], net usable_space [96.1gb], net total_space [199.9gb], spins? [unknown], types [NTFS]
+[2018-01-05 10:26:01,292][INFO ][env                      ] [Administrator] heap size [989.8mb], compressed ordinary object pointers [true]
+[2018-01-05 10:26:02,945][INFO ][node                     ] [Administrator] initialized
+[2018-01-05 10:26:02,945][INFO ][node                     ] [Administrator] starting ...
+[2018-01-05 10:26:03,244][INFO ][transport                ] [Administrator] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-01-05 10:26:03,252][INFO ][discovery                ] [Administrator] elasticsearch/wgsdsXL4RSai0q3VnV3aqQ
+[2018-01-05 10:26:07,281][INFO ][cluster.service          ] [Administrator] new_master {Administrator}{wgsdsXL4RSai0q3VnV3aqQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-01-05 10:26:07,342][INFO ][gateway                  ] [Administrator] recovered [1] indices into cluster_state
+[2018-01-05 10:26:07,552][INFO ][http                     ] [Administrator] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-01-05 10:26:07,553][INFO ][node                     ] [Administrator] started
+[2018-01-05 10:26:07,696][INFO ][cluster.routing.allocation] [Administrator] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][0]] ...]).
+[2018-01-05 20:17:10,719][INFO ][cluster.metadata         ] [Administrator] [hive] update_mapping [assets]
+[2018-01-05 22:36:54,969][INFO ][bootstrap                ] running graceful exit on windows
+[2018-01-05 22:36:54,972][INFO ][node                     ] [Administrator] stopping ...
+[2018-01-05 22:36:55,084][INFO ][node                     ] [Administrator] stopped
+[2018-01-05 22:36:55,085][INFO ][node                     ] [Administrator] closing ...
+[2018-01-05 22:36:55,091][INFO ][node                     ] [Administrator] closed

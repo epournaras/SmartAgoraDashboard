@@ -1,0 +1,19 @@
+[2018-01-09 14:18:17,487][INFO ][node                     ] [Rage] version[2.4.3], pid[9924], build[d38a34e/2016-12-07T16:28:56Z]
+[2018-01-09 14:18:17,490][INFO ][node                     ] [Rage] initializing ...
+[2018-01-09 14:18:17,892][INFO ][plugins                  ] [Rage] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-01-09 14:18:17,918][INFO ][env                      ] [Rage] using [1] data paths, mounts [[(C:)]], net usable_space [100.7gb], net total_space [199.9gb], spins? [unknown], types [NTFS]
+[2018-01-09 14:18:17,918][INFO ][env                      ] [Rage] heap size [989.8mb], compressed ordinary object pointers [true]
+[2018-01-09 14:18:19,549][INFO ][node                     ] [Rage] initialized
+[2018-01-09 14:18:19,549][INFO ][node                     ] [Rage] starting ...
+[2018-01-09 14:18:19,890][INFO ][transport                ] [Rage] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-01-09 14:18:19,904][INFO ][discovery                ] [Rage] elasticsearch/YHt4A6ihSZqkpgqaKShhdQ
+[2018-01-09 14:18:23,937][INFO ][cluster.service          ] [Rage] new_master {Rage}{YHt4A6ihSZqkpgqaKShhdQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-01-09 14:18:24,002][INFO ][gateway                  ] [Rage] recovered [1] indices into cluster_state
+[2018-01-09 14:18:24,273][INFO ][http                     ] [Rage] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-01-09 14:18:24,273][INFO ][node                     ] [Rage] started
+[2018-01-09 14:18:24,347][INFO ][cluster.routing.allocation] [Rage] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][4]] ...]).
+[2018-01-09 22:02:03,335][INFO ][bootstrap                ] running graceful exit on windows
+[2018-01-09 22:02:03,335][INFO ][node                     ] [Rage] stopping ...
+[2018-01-09 22:02:03,459][INFO ][node                     ] [Rage] stopped
+[2018-01-09 22:02:03,459][INFO ][node                     ] [Rage] closing ...
+[2018-01-09 22:02:03,475][INFO ][node                     ] [Rage] closed

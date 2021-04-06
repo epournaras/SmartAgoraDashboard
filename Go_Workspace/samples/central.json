@@ -1,0 +1,25 @@
+{
+  "Project": {
+    "Id": "Central_01",
+    "Name": "Central",
+    "Description": "Citizen Feedback on Renovation at Central"
+  },
+  "Tasks": [
+    {
+      "Name": "Day",
+      "Description": "Feedback of Citizens at Central in Day",
+      "CurrentState": "available",
+      "AssignmentCriteria": {
+        "SubmittedData": {
+          "day": {}
+        }
+      },
+      "CompletionCriteria": {
+        "Total": 100,
+        "Matching": 100
+      }
+    }
+  ]
+
+}
+

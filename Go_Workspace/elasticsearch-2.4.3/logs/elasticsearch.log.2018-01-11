@@ -1,0 +1,19 @@
+[2018-01-11 20:50:33,755][INFO ][node                     ] [Necrodamus] version[2.4.3], pid[13844], build[d38a34e/2016-12-07T16:28:56Z]
+[2018-01-11 20:50:33,759][INFO ][node                     ] [Necrodamus] initializing ...
+[2018-01-11 20:50:34,483][INFO ][plugins                  ] [Necrodamus] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-01-11 20:50:34,513][INFO ][env                      ] [Necrodamus] using [1] data paths, mounts [[(C:)]], net usable_space [100.4gb], net total_space [199.9gb], spins? [unknown], types [NTFS]
+[2018-01-11 20:50:34,514][INFO ][env                      ] [Necrodamus] heap size [989.8mb], compressed ordinary object pointers [true]
+[2018-01-11 20:50:36,449][INFO ][node                     ] [Necrodamus] initialized
+[2018-01-11 20:50:36,449][INFO ][node                     ] [Necrodamus] starting ...
+[2018-01-11 20:50:36,868][INFO ][transport                ] [Necrodamus] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-01-11 20:50:36,882][INFO ][discovery                ] [Necrodamus] elasticsearch/dP9rQ1joR3uovyk4QOa5HQ
+[2018-01-11 20:50:40,942][INFO ][cluster.service          ] [Necrodamus] new_master {Necrodamus}{dP9rQ1joR3uovyk4QOa5HQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-01-11 20:50:41,022][INFO ][gateway                  ] [Necrodamus] recovered [1] indices into cluster_state
+[2018-01-11 20:50:41,351][INFO ][http                     ] [Necrodamus] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-01-11 20:50:41,351][INFO ][node                     ] [Necrodamus] started
+[2018-01-11 20:50:41,421][INFO ][cluster.routing.allocation] [Necrodamus] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][2]] ...]).
+[2018-01-11 22:06:58,709][INFO ][bootstrap                ] running graceful exit on windows
+[2018-01-11 22:06:58,712][INFO ][node                     ] [Necrodamus] stopping ...
+[2018-01-11 22:06:58,819][INFO ][node                     ] [Necrodamus] stopped
+[2018-01-11 22:06:58,819][INFO ][node                     ] [Necrodamus] closing ...
+[2018-01-11 22:06:58,826][INFO ][node                     ] [Necrodamus] closed

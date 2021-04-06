@@ -1,0 +1,14 @@
+[2018-02-04 12:52:49,334][INFO ][node                     ] [Amber Hunt] version[2.4.3], pid[12428], build[d38a34e/2016-12-07T16:28:56Z]
+[2018-02-04 12:52:49,337][INFO ][node                     ] [Amber Hunt] initializing ...
+[2018-02-04 12:52:50,060][INFO ][plugins                  ] [Amber Hunt] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-02-04 12:52:50,084][INFO ][env                      ] [Amber Hunt] using [1] data paths, mounts [[(C:)]], net usable_space [41gb], net total_space [199.2gb], spins? [unknown], types [NTFS]
+[2018-02-04 12:52:50,085][INFO ][env                      ] [Amber Hunt] heap size [989.8mb], compressed ordinary object pointers [true]
+[2018-02-04 12:52:52,048][INFO ][node                     ] [Amber Hunt] initialized
+[2018-02-04 12:52:52,048][INFO ][node                     ] [Amber Hunt] starting ...
+[2018-02-04 12:52:52,554][INFO ][transport                ] [Amber Hunt] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-02-04 12:52:52,561][INFO ][discovery                ] [Amber Hunt] elasticsearch/3JMzHgg_TN6dnOg5g5PVuA
+[2018-02-04 12:52:56,615][INFO ][cluster.service          ] [Amber Hunt] new_master {Amber Hunt}{3JMzHgg_TN6dnOg5g5PVuA}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-02-04 12:52:56,687][INFO ][gateway                  ] [Amber Hunt] recovered [1] indices into cluster_state
+[2018-02-04 12:52:57,132][INFO ][cluster.routing.allocation] [Amber Hunt] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][0]] ...]).
+[2018-02-04 12:52:57,166][INFO ][http                     ] [Amber Hunt] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-02-04 12:52:57,167][INFO ][node                     ] [Amber Hunt] started

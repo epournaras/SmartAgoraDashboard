@@ -1,0 +1,14 @@
+[2021-01-04 15:46:21,530][INFO ][node                     ] [Abraxas] version[2.4.3], pid[1660], build[d38a34e/2016-12-07T16:28:56Z]
+[2021-01-04 15:46:21,545][INFO ][node                     ] [Abraxas] initializing ...
+[2021-01-04 15:46:22,608][INFO ][plugins                  ] [Abraxas] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2021-01-04 15:46:22,681][INFO ][env                      ] [Abraxas] using [1] data paths, mounts [[/ (/dev/sda3)]], net usable_space [43.3gb], net total_space [58.3gb], spins? [possibly], types [ext4]
+[2021-01-04 15:46:22,689][INFO ][env                      ] [Abraxas] heap size [1015.6mb], compressed ordinary object pointers [true]
+[2021-01-04 15:46:28,202][INFO ][node                     ] [Abraxas] initialized
+[2021-01-04 15:46:28,204][INFO ][node                     ] [Abraxas] starting ...
+[2021-01-04 15:46:28,403][INFO ][transport                ] [Abraxas] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2021-01-04 15:46:28,413][INFO ][discovery                ] [Abraxas] elasticsearch/w2d7Hzz2Tw6v-YvAFz7g8A
+[2021-01-04 15:46:31,591][INFO ][cluster.service          ] [Abraxas] new_master {Abraxas}{w2d7Hzz2Tw6v-YvAFz7g8A}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2021-01-04 15:46:31,651][INFO ][http                     ] [Abraxas] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2021-01-04 15:46:31,653][INFO ][node                     ] [Abraxas] started
+[2021-01-04 15:46:31,878][INFO ][gateway                  ] [Abraxas] recovered [1] indices into cluster_state
+[2021-01-04 15:46:33,110][INFO ][cluster.routing.allocation] [Abraxas] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][3]] ...]).

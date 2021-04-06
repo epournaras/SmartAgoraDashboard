@@ -1,0 +1,151 @@
+
+---------- BASEREQUEST.GO
+
+---------- BASERESPONSE.GO
+
+---------- CLUSTERHEALTH.GO
+
+---------- CLUSTERHEALTHRESPONSES.GO
+
+---------- CLUSTERNODESHOTTHREADS.GO
+
+---------- CLUSTERNODESINFO.GO
+
+---------- CLUSTERNODESINFO_TEST.GO
+
+---------- CLUSTERNODESSHUTDOWN.GO
+
+---------- CLUSTERREROUTE.GO
+
+---------- CLUSTERSTATE.GO
+
+---------- CLUSTERSTATRESPONSES.GO
+
+---------- CLUSTERUPDATESETTINGS.GO
+
+---------- CONNECTION.GO
+
+---------- COREBULK.GO
+
+---------- COREBULKUDP.GO
+
+---------- COREBULK_TEST.GO
+
+---------- CORECOUNT.GO
+
+---------- COREDELETE.GO
+
+---------- COREDELETEBYQUERY.GO
+
+---------- COREEXAMPLE_TEST.GO
+
+---------- COREEXPLAIN.GO
+
+---------- COREGET.GO
+
+---------- COREINDEX.GO
+
+---------- COREMGET.GO
+
+---------- COREMORELIKETHIS.GO
+
+---------- COREMSEARCH.GO
+
+---------- COREPERCOLATE.GO
+
+---------- CORESEARCH.GO
+func (c *Conn) Search(index string, _type string, args map[string]interface{}, query interface{}) (SearchResult, error) {
+	var retval SearchResult
+func (c *Conn) SearchUri(index, _type string, args map[string]interface{}) (SearchResult, error) {
+	var retval SearchResult
+func (c *Conn) Scroll(args map[string]interface{}, scroll_id string) (SearchResult, error) {
+	var retval SearchResult
+type SearchResult struct {
+func (s *SearchResult) String() string {
+
+---------- CORESEARCH_TEST.GO
+func TestSearchResultToJSON(t *testing.T) {
+
+---------- CORETEST_TEST.GO
+
+---------- COREUPDATE.GO
+
+---------- COREVALIDATE.GO
+
+---------- ERROR.GO
+
+---------- INDICESALIASES.GO
+
+---------- INDICESANALYZE.GO
+
+---------- INDICESCLEARCACHE.GO
+
+---------- INDICESCREATEINDEX.GO
+
+---------- INDICESDELETEINDEX.GO
+
+---------- INDICESDELETEMAPPING.GO
+
+---------- INDICESDOC.GO
+
+---------- INDICESFLUSH.GO
+
+---------- INDICESGETSETTINGS.GO
+
+---------- INDICESINDICESEXISTS.GO
+
+---------- INDICESOPENCLOSEINDEX.GO
+
+---------- INDICESOPTIMIZE.GO
+
+---------- INDICESPUTMAPPING.GO
+
+---------- INDICESPUTMAPPING_TEST.GO
+
+---------- INDICESPUTSETTINGS.GO
+
+---------- INDICESREFRESH.GO
+
+---------- INDICESSEGMENTS.GO
+
+---------- INDICESSNAPSHOT.GO
+
+---------- INDICESSTATS.GO
+
+---------- INDICESSTATUS.GO
+
+---------- INDICESTEMPLATES.GO
+
+---------- INDICESUPDATESETTINGS.GO
+
+---------- REQUEST.GO
+
+---------- REQUEST_TEST.GO
+
+---------- SEARCHAGGREGATE.GO
+
+---------- SEARCHAGGREGATE_TEST.GO
+
+---------- SEARCHDSL.GO
+
+---------- SEARCHFACET.GO
+
+---------- SEARCHFACET_TEST.GO
+
+---------- SEARCHFILTER.GO
+
+---------- SEARCHFILTER_TEST.GO
+
+---------- SEARCHQUERY.GO
+
+---------- SEARCHSEARCH.GO
+func (s *SearchDsl) Result(conn *Conn) (*SearchResult, error) {
+	var retval SearchResult
+
+---------- SEARCHSEARCH_TEST.GO
+
+---------- SEARCHSORT.GO
+
+---------- SHARED.GO
+
+---------- SHARED_TEST.GO

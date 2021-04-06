@@ -1,0 +1,19 @@
+[2017-12-17 00:53:14,010][INFO ][node                     ] [High-Tech] version[2.4.3], pid[892], build[d38a34e/2016-12-07T16:28:56Z]
+[2017-12-17 00:53:14,013][INFO ][node                     ] [High-Tech] initializing ...
+[2017-12-17 00:53:14,632][INFO ][plugins                  ] [High-Tech] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2017-12-17 00:53:14,649][INFO ][env                      ] [High-Tech] using [1] data paths, mounts [[(C:)]], net usable_space [105.5gb], net total_space [199.9gb], spins? [unknown], types [NTFS]
+[2017-12-17 00:53:14,650][INFO ][env                      ] [High-Tech] heap size [989.8mb], compressed ordinary object pointers [true]
+[2017-12-17 00:53:16,072][INFO ][node                     ] [High-Tech] initialized
+[2017-12-17 00:53:16,073][INFO ][node                     ] [High-Tech] starting ...
+[2017-12-17 00:53:16,283][INFO ][transport                ] [High-Tech] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2017-12-17 00:53:16,286][INFO ][discovery                ] [High-Tech] elasticsearch/jOWdTwxsRImRT8ZfSSdVkw
+[2017-12-17 00:53:20,347][INFO ][cluster.service          ] [High-Tech] new_master {High-Tech}{jOWdTwxsRImRT8ZfSSdVkw}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2017-12-17 00:53:20,407][INFO ][gateway                  ] [High-Tech] recovered [1] indices into cluster_state
+[2017-12-17 00:53:20,525][INFO ][http                     ] [High-Tech] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2017-12-17 00:53:20,525][INFO ][node                     ] [High-Tech] started
+[2017-12-17 00:53:20,741][INFO ][cluster.routing.allocation] [High-Tech] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][4]] ...]).
+[2017-12-17 00:54:03,450][INFO ][bootstrap                ] running graceful exit on windows
+[2017-12-17 00:54:03,450][INFO ][node                     ] [High-Tech] stopping ...
+[2017-12-17 00:54:03,505][INFO ][node                     ] [High-Tech] stopped
+[2017-12-17 00:54:03,506][INFO ][node                     ] [High-Tech] closing ...
+[2017-12-17 00:54:03,509][INFO ][node                     ] [High-Tech] closed

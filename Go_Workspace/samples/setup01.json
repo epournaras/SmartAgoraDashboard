@@ -1,0 +1,25 @@
+{
+  "Project": {
+    "Id": "basic",
+    "Name": "Basic",
+    "Description": "Basic Smartagora data collection"
+  },
+  "Tasks": [
+    {
+      "Name": "record",
+      "Description": "Recording data for specified sensors and time interval",
+      "CurrentState": "available",
+      "AssignmentCriteria": {
+        "SubmittedData": {
+          "record": {}
+        }
+      },
+      "CompletionCriteria": {
+        "Total": 100,
+        "Matching": 100
+      }
+    }
+  ]
+
+}
+

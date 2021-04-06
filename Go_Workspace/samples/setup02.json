@@ -1,0 +1,38 @@
+{
+  "Project": {
+    "Id": "basic",
+    "Name": "Basic",
+    "Description": "Basic Smartagora data collection"
+  },
+  "Tasks": [
+    {
+      "Name": "record",
+      "Description": "Recording data for specified sensors and time interval",
+      "CurrentState": "available",
+      "AssignmentCriteria": {
+        "SubmittedData": {
+          "record": {}
+        }
+      },
+      "CompletionCriteria": {
+        "Total": 100,
+        "Matching": 100
+      }
+    }
+  ],
+  "Assets": [
+    {
+      "Name": "Data Set 1",
+      "Url": "https://smart-agora.org",
+      "Metadata": {
+        "record": {
+          "sensors": ["accelerometer"],
+          "start": "2016-06-01T12:00:00Z",
+          "end": "2016-06-01T12:10:00Z",
+          "step": 1000 
+        }
+      }
+    }
+  ]
+}
+

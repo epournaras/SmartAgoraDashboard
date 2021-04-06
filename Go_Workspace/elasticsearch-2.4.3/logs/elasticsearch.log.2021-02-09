@@ -1,0 +1,17 @@
+[2021-02-09 13:39:54,871][INFO ][node                     ] [Wolverine] version[2.4.3], pid[1978], build[d38a34e/2016-12-07T16:28:56Z]
+[2021-02-09 13:39:54,873][INFO ][node                     ] [Wolverine] initializing ...
+[2021-02-09 13:39:55,819][INFO ][plugins                  ] [Wolverine] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2021-02-09 13:39:55,879][INFO ][env                      ] [Wolverine] using [1] data paths, mounts [[/ (/dev/sda3)]], net usable_space [43.5gb], net total_space [58.3gb], spins? [possibly], types [ext4]
+[2021-02-09 13:39:55,879][INFO ][env                      ] [Wolverine] heap size [1015.6mb], compressed ordinary object pointers [true]
+[2021-02-09 13:40:03,407][INFO ][node                     ] [Wolverine] initialized
+[2021-02-09 13:40:03,408][INFO ][node                     ] [Wolverine] starting ...
+[2021-02-09 13:40:03,887][INFO ][transport                ] [Wolverine] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2021-02-09 13:40:03,897][INFO ][discovery                ] [Wolverine] elasticsearch/ergWyg71Rca9LZ-pozw5Rw
+[2021-02-09 13:40:07,130][INFO ][cluster.service          ] [Wolverine] new_master {Wolverine}{ergWyg71Rca9LZ-pozw5Rw}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2021-02-09 13:40:07,447][INFO ][http                     ] [Wolverine] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2021-02-09 13:40:07,448][INFO ][node                     ] [Wolverine] started
+[2021-02-09 13:40:07,906][INFO ][gateway                  ] [Wolverine] recovered [1] indices into cluster_state
+[2021-02-09 13:40:10,402][INFO ][cluster.routing.allocation] [Wolverine] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][2]] ...]).
+[2021-02-09 14:39:51,657][INFO ][cluster.metadata         ] [Wolverine] [hive] update_mapping [assignments]
+[2021-02-09 14:39:51,789][INFO ][cluster.metadata         ] [Wolverine] [hive] update_mapping [users]
+[2021-02-09 14:39:51,949][INFO ][cluster.metadata         ] [Wolverine] [hive] update_mapping [tasks]

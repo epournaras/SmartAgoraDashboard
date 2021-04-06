@@ -1,0 +1,21 @@
+[2021-01-13 17:05:48,273][INFO ][node                     ] [Yith] version[2.4.3], pid[2124], build[d38a34e/2016-12-07T16:28:56Z]
+[2021-01-13 17:05:48,279][INFO ][node                     ] [Yith] initializing ...
+[2021-01-13 17:05:49,307][INFO ][plugins                  ] [Yith] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2021-01-13 17:05:49,367][INFO ][env                      ] [Yith] using [1] data paths, mounts [[/ (/dev/sda3)]], net usable_space [43.5gb], net total_space [58.3gb], spins? [possibly], types [ext4]
+[2021-01-13 17:05:49,373][INFO ][env                      ] [Yith] heap size [1015.6mb], compressed ordinary object pointers [true]
+[2021-01-13 17:05:54,242][INFO ][node                     ] [Yith] initialized
+[2021-01-13 17:05:54,243][INFO ][node                     ] [Yith] starting ...
+[2021-01-13 17:05:54,416][INFO ][transport                ] [Yith] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2021-01-13 17:05:54,429][INFO ][discovery                ] [Yith] elasticsearch/otkD_7qDRCa7W4yrzbF1rA
+[2021-01-13 17:05:57,541][INFO ][cluster.service          ] [Yith] new_master {Yith}{otkD_7qDRCa7W4yrzbF1rA}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2021-01-13 17:05:57,679][INFO ][http                     ] [Yith] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2021-01-13 17:05:57,693][INFO ][node                     ] [Yith] started
+[2021-01-13 17:05:57,839][INFO ][gateway                  ] [Yith] recovered [1] indices into cluster_state
+[2021-01-13 17:05:59,083][INFO ][cluster.routing.allocation] [Yith] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[hive][0]] ...]).
+[2021-01-13 17:33:09,320][INFO ][cluster.metadata         ] [Yith] [hive] update_mapping [assignments]
+[2021-01-13 17:33:09,422][INFO ][cluster.metadata         ] [Yith] [hive] update_mapping [users]
+[2021-01-13 17:33:09,531][INFO ][cluster.metadata         ] [Yith] [hive] update_mapping [tasks]
+[2021-01-13 17:37:30,624][INFO ][node                     ] [Yith] stopping ...
+[2021-01-13 17:37:31,715][INFO ][node                     ] [Yith] stopped
+[2021-01-13 17:37:31,715][INFO ][node                     ] [Yith] closing ...
+[2021-01-13 17:37:31,771][INFO ][node                     ] [Yith] closed
